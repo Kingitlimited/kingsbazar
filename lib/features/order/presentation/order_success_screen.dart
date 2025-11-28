@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CheckoutScreen extends StatelessWidget {
-  const CheckoutScreen({super.key});
+class OrderSuccessScreen extends StatelessWidget {
+  const OrderSuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Checkout'),
+        title: const Text('Order Success'),
       ),
       body: Center(
-        child: Text('Checkout Screen'),
+        child: Text('Order Success Screen'),
       ),
     );
   }

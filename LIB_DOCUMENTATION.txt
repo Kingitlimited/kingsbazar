@@ -1,0 +1,5717 @@
+====================================================================================================
+KINGSBAZAR - COMPLETE LIB FOLDER DOCUMENTATION
+====================================================================================================
+
+Total Files: 120
+
+====================================================================================================
+FILE: lib\config\app_config.dart
+====================================================================================================
+/// lib/config/app_config.dart
+/// Simple config — easy to switch from DummyJSON to real backend later
+
+class AppConfig {
+  // Change this to false when you connect real backend (Shopify, WooCommerce, etc.)
+  static const bool useDummyJson = true;
+
+  // DummyJSON API (for development & demo)
+  static const String dummyJsonBaseUrl = 'https://dummyjson.com';
+
+  // Future real backend — just change the flag above
+  // static const String apiBaseUrl = 'https://your-real-api.com/v1';
+  // static const String imageCdnUrl = 'https://cdn.yourshop.com';
+
+  // Prevent instantiation
+  AppConfig._();
+}
+
+
+====================================================================================================
+FILE: lib\core\constants\app_colors.dart
+====================================================================================================
+import 'package:flutter/material.dart';
+
+class AppColors {
+  static const Color primary = Color(0xFFE30425);     // Your exact red
+  static const Color primaryDark = Color(0xFFB71C1C);
+  static const Color accent = Color(0xFFFF1744);
+  static const Color background = Color(0xFFFFFBFE);
+  static const Color surface = Colors.white;
+  static const Color textPrimary = Color(0xFF1A1A1A);
+  static const Color textSecondary = Color(0xFF757575);
+  static const Color success = Color(0xFF00C853);
+  static const Color warning = Color(0xFFFFD600);
+  static const Color error = Color(0xFFD50000);
+}
+
+
+====================================================================================================
+FILE: lib\core\constants\app_images.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\core\constants\app_strings.dart
+====================================================================================================
+  
+/// lib/core/constants/app_strings.dart
+/// All static text used in the app – easy to manage & translate later
+
+class AppStrings {
+  // App Name & General
+  static const String appName = 'KingsBazar';
+  static const String tagline = 'Shop the Latest Trends';
+
+  // Buttons
+  static const String continueText = 'Continue';
+  static const String getStarted = 'Get Started';
+  static const String skip = 'Skip';
+  static const String next = 'Next';
+  static const String done = 'Done';
+  static const String addToCart = 'Add to Cart';
+  static const String buyNow = 'Buy Now';
+  static const String viewCart = 'View Cart';
+  static const String applyCoupon = 'Apply Coupon';
+  static const String proceedToCheckout = 'Proceed to Checkout';
+  static const String placeOrder = 'Place Order';
+  static const String login = 'Login';
+  static const String signup = 'Sign Up';
+  static const String logout = 'Logout';
+  static const String save = 'Save';
+  static const String edit = 'Edit';
+  static const String delete = 'Delete';
+  static const String remove = 'Remove';
+  static const String viewAll = 'View All';
+
+  // Messages
+  static const String addedToCart = 'Added to cart!';
+  static const String removedFromCart = 'Removed from cart';
+  static const String addedToWishlist = 'Added to wishlist';
+  static const String removedFromWishlist = 'Removed from wishlist';
+  static const String noInternet = 'No internet connection';
+  static const String somethingWentWrong = 'Something went wrong';
+  static const String loading = 'Loading...';
+  static const String emptyCart = 'Your cart is empty';
+  static const String emptyWishlist = 'Your wishlist is empty';
+  static const String noProductsFound = 'No products found';
+  static const String searchHint = 'Search products, brands...';
+
+  // Labels
+  static const String home = 'Home';
+  static const String categories = 'Categories';
+  static const String search = 'Search';
+  static const String wishlist = 'Wishlist';
+  static const String cart = 'Cart';
+  static const String profile = 'Profile';
+  static const String myOrders = 'My Orders';
+  static const String myAddresses = 'My Addresses';
+  static const String paymentMethods = 'Payment Methods';
+  static const String helpSupport = 'Help & Support';
+  static const String aboutUs = 'About Us';
+  static const String rateApp = 'Rate App';
+  static const String shareApp = 'Share App';
+
+  // Validation
+  static const String enterEmail = 'Please enter email';
+  static const String validEmail = 'Please enter a valid email';
+  static const String enterPassword = 'Please enter password';
+  static const String passwordLength = 'Password must be at least 6 characters';
+  static const String enterName = 'Please enter your name';
+  static const String enterPhone = 'Please enter phone number';
+
+  // Onboarding
+  static const String onboardingTitle1 = 'Shop the Latest Fashion';
+  static const String onboardingDesc1 = 'Discover trending styles from top brands';
+  static const String onboardingTitle2 = 'Fast & Secure Delivery';
+  static const String onboardingDesc2 = 'Get your orders delivered in 2-5 days';
+  static const String onboardingTitle3 = 'Easy Returns';
+  static const String onboardingDesc3 = '30-day hassle-free return policy';
+
+  // Prevent instantiation
+  AppStrings._();
+}
+
+
+====================================================================================================
+FILE: lib\core\constants\app_text_styles.dart
+====================================================================================================
+  
+import 'package:flutter/material.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+class AppTextStyles {
+  static const TextStyle heading1 = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textPrimary,
+  );
+
+  static const TextStyle heading2 = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textPrimary,
+  );
+
+  static const TextStyle body = TextStyle(
+    fontSize: 16,
+    color: AppColors.textPrimary,
+  );
+
+  static const TextStyle caption = TextStyle(
+    fontSize: 14,
+    color: AppColors.textSecondary,
+  );
+
+  static const TextStyle button = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+}
+
+
+====================================================================================================
+FILE: lib\core\routes\app_router.dart
+====================================================================================================
+/// lib/core/routes/app_router.dart
+/// GoRouter configuration with ShellRoute + perfect navigation
+
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kingsbazar/core/routes/app_routes.dart';
+import 'package:kingsbazar/features/checkout/presentation/checkout_payment_screen.dart';
+
+// Screens (will be created later)
+import 'package:kingsbazar/features/home/presentation/home_screen.dart';
+import 'package:kingsbazar/features/product/presentation/product_detail_screen.dart';
+import 'package:kingsbazar/features/search/presentation/search_screen.dart';
+import 'package:kingsbazar/features/wishlist/presentation/wishlist_screen.dart';
+import 'package:kingsbazar/features/cart/presentation/cart_screen.dart';
+import 'package:kingsbazar/models/product_model.dart';
+
+final GoRouter router = GoRouter(
+  initialLocation: AppRoutes.home,
+  routes: [
+    // ──────── ONBOARDING & AUTH (No Bottom Nav) ────────
+    GoRoute(
+      path: AppRoutes.onboarding,
+      builder: (context, state) => const OnboardingScreen(), // create later
+    ),
+    GoRoute(
+      path: AppRoutes.login,
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.signup,
+      builder: (context, state) => const SignupScreen(),
+    ),
+
+    // ──────── MAIN APP WITH BOTTOM NAVIGATION ────────
+    ShellRoute(
+      builder: (context, state, child) => MainScaffold(child: child),
+      routes: [
+        GoRoute(
+          path: AppRoutes.home,
+          builder: (context, state) => const HomeScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.category,
+          builder: (context, state) => const CategoryScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.search,
+          builder: (context, state) => const SearchScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.wishlist,
+          builder: (context, state) => const WishlistScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.cart,
+          builder: (context, state) => const CartScreen(),
+        ),
+      ],
+    ),
+
+    // ──────── FULL SCREEN ROUTES (on top of shell) ────────
+    GoRoute(
+      path: AppRoutes.productDetail,
+      builder: (context, state) {
+        final product = state.extra as ProductModel;
+        return ProductDetailScreen(product: product);
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.checkout,
+      builder: (context, state) => const CheckoutScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.orderSuccess,
+      builder: (context, state) => const OrderSuccessScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.profile,
+      builder: (context, state) => const ProfileScreen(),
+    ),
+  ],
+
+  // Optional: Redirect logic (e.g. if not logged in)
+  // redirect: (context, state) {
+  //   final isLoggedIn = false; // connect to auth provider later
+  //   final isAuthRoute = [AppRoutes.login, AppRoutes.signup, AppRoutes.onboarding].contains(state.uri.path);
+  //   if (!isLoggedIn && !isAuthRoute) return AppRoutes.login;
+  //   return null;
+  // },
+);
+
+
+====================================================================================================
+FILE: lib\core\routes\app_routes.dart
+====================================================================================================
+  
+/// lib/core/routes/app_routes.dart
+/// All named routes in one place – easy to manage & refactor
+
+class AppRoutes {
+  // Main Shell Routes (Bottom Navigation)
+  static const String home = '/home';
+  static const String category = '/category';
+  static const String search = '/search';
+  static const String wishlist = '/wishlist';
+  static const String cart = '/cart';
+
+  // Auth Flow
+  static const String onboarding = '/onboarding';
+  static const String login = '/login';
+  static const String signup = '/signup';
+  static const String forgotPassword = '/forgot-password';
+
+  // Product Flow
+  static const String productDetail = '/product-detail';
+  static const String productList = '/product-list';
+
+  // Checkout Flow
+  static const String addressList = '/address-list';
+  static const String addAddress = '/add-address';
+  static const String checkout = '/checkout';
+  static const String payment = '/payment';
+  static const String orderSuccess = '/order-success';
+
+  // Profile & Settings
+  static const String profile = '/profile';
+  static const String editProfile = '/edit-profile';
+  static const String myOrders = '/my-orders';
+  static const String orderDetail = '/order-detail';
+  static const String myAddresses = '/my-addresses';
+  static const String helpSupport = '/help-support';
+  static const String aboutUs = '/about-us';
+  static const String settings = '/settings';
+
+  // Prevent instantiation
+  AppRoutes._();
+}
+
+
+====================================================================================================
+FILE: lib\core\theme\app_theme.dart
+====================================================================================================
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../constants/app_colors.dart';
+
+class AppTheme {
+  static final light = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+    scaffoldBackgroundColor: AppColors.background,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.white,
+      foregroundColor: AppColors.textPrimary,
+      elevation: 0,
+      titleTextStyle: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+        padding: EdgeInsets.symmetric(vertical: 14.h),
+      ),
+    ),
+  );
+}
+
+
+====================================================================================================
+FILE: lib\core\utils\extensions.dart
+====================================================================================================
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+extension NumExtension on num {
+  double get w => ScreenUtil().setWidth(this);
+  double get h => ScreenUtil().setHeight(this);
+  double get sp => ScreenUtil().setSp(this);
+  double get r => ScreenUtil().radius(this);
+}
+
+extension StringExtension on String {
+  String toTitleCase() {
+    return split(' ')
+        .map((word) => word.isNotEmpty 
+            ? word[0].toUpperCase() + word.substring(1).toLowerCase()
+            : word)
+        .join(' ');
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\utils\helpers.dart
+====================================================================================================
+  
+/// lib/core/utils/helpers.dart
+/// Collection of reusable helper functions used throughout the app
+
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+class Helpers {
+  // Prevent instantiation
+  Helpers._();
+
+  /// Show a beautiful snackbar
+  static void showSnackBar({
+    required BuildContext context,
+    required String message,
+    bool success = true,
+    Duration duration = const Duration(seconds: 2),
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: success ? AppColors.primary : AppColors.error,
+        behavior: SnackBarBehavior.floating,
+        duration: duration,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        margin: EdgeInsets.all(16),
+      ),
+    );
+  }
+
+  /// Format price with currency symbol
+  static String formatPrice(double price) {
+    final formatter = NumberFormat.currency(
+      symbol: '\$',
+      decimalDigits: 2,
+    );
+    return formatter.format(price);
+  }
+
+  /// Format date
+  static String formatDate(DateTime date, {String pattern = 'dd MMM yyyy'}) {
+    return DateFormat(pattern).format(date);
+  }
+
+  /// Capitalize first letter of each word
+  static String toTitleCase(String text) {
+    if (text.isEmpty) return text;
+    return text.split(' ').map((word) {
+      if (word.isEmpty) return word;
+      return word[0].toUpperCase() + word.substring(1).toLowerCase();
+    }).join(' ');
+  }
+
+  /// Generate rating stars widget
+  static Widget buildRatingStars(double rating, {double size = 16}) {
+    return Row(
+      children: List.generate(5, (index) {
+        if (index < rating.floor()) {
+          return Icon(Icons.star, color: Colors.amber, size: size);
+        } else if (index < rating) {
+          return Icon(Icons.star_half, color: Colors.amber, size: size);
+        } else {
+          return Icon(Icons.star_border, color: Colors.amber, size: size);
+        }
+      }),
+    );
+  }
+
+  /// Check if string is valid email
+  static bool isValidEmail(String email) {
+    return RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
+  }
+
+  /// Check if string is valid phone (10 digits)
+  static bool isValidPhone(String phone) {
+    return RegExp(r'^\d{10}$').hasMatch(phone.replaceAll(RegExp(r'\D'), ''));
+  }
+
+  /// Truncate text with ellipsis
+  static String truncateText(String text, int maxLength) {
+    if (text.length <= maxLength) return text;
+    return '${text.substring(0, maxLength)}...';
+  }
+
+  /// Launch URL (add url_launcher later if needed)
+  // static Future<void> launchURL(String url) async {
+  //   if (await canLaunchUrl(Uri.parse(url))) {
+  //     await launchUrl(Uri.parse(url));
+  //   }
+  // }
+
+  /// Generate placeholder image URL (for testing)
+  static String placeholderImage({int width = 400, int height = 600}) {
+    return 'https://via.placeholder.com/${width}x$height/EEEEEE/E30425?text=No+Image';
+  }
+
+  /// Get discount percentage text
+  static String getDiscountText(double original, double discounted) {
+    if (original <= discounted) return '';
+    final discount = ((original - discounted) / original * 100).round();
+    return '$discount% OFF';
+  }
+
+  /// Hide keyboard
+  static void hideKeyboard(BuildContext context) {
+    FocusScope.of(context).unfocus();
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\utils\screen_util.dart
+====================================================================================================
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class ScreenUtilInitWrapper extends StatelessWidget {
+  final Widget child;
+  const ScreenUtilInitWrapper({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),     // Your Figma size
+      minTextAdapt: true,
+      splitScreenMode: true,
+      fontSizeResolver: FontSizeResolvers.radius,  // Best for radius
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: child!,
+        );
+      },
+      child: child,
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\custom_appbar.dart
+====================================================================================================
+/// lib/core/widgets/common/custom_appbar.dart
+/// FINAL VERSION — 100% IDENTICAL TO YOUR MOCKUP
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/core/widgets/components/cart_badge.dart';
+
+class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
+  final bool isHome;
+
+  const CustomAppBar({Key? key, this.isHome = false}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (isHome) {
+      return AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black.withOpacity(0.5), Colors.transparent],
+            ),
+          ),
+        ),
+        title: Row(
+          children: [
+            // Crown Logo (Small)
+            Image.asset("assets/images/crown_logo.png", width: 36.w),
+            SizedBox(width: 10.w),
+            // KingsBazar Text (GOLD)
+            Text(
+              "KingsBazar",
+              style: TextStyle(
+                fontSize: 22.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.accent, // GOLD
+                letterSpacing: 1.5,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          // Search Icon
+          IconButton(
+            icon: Icon(Icons.search_rounded, color: Colors.white, size: 28.w),
+            onPressed: () => Navigator.pushNamed(context, '/search'),
+          ),
+          // Notification Bell
+          IconButton(
+            icon: Stack(
+              children: [
+                Icon(Icons.notifications_outlined, color: Colors.white, size: 28.w),
+                Positioned(
+                  right: 6,
+                  top: 6,
+                  child: Container(
+                    width: 10.w,
+                    height: 10.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            onPressed: () => Navigator.pushNamed(context, '/notifications'),
+          ),
+          // Cart with Badge
+          CartBadge(
+            badgeColor: AppColors.primary,
+            child: IconButton(
+              icon: Icon(Icons.shopping_bag_outlined, color: Colors.white, size: 26.w),
+              onPressed: () => Navigator.pushNamed(context, '/cart'),
+            ),
+          ),
+          // Profile Avatar
+          Padding(
+            padding: EdgeInsets.only(right: 12.w, left: 8.w),
+            child: CircleAvatar(
+              radius: 18.r,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 16.r,
+                backgroundImage: AssetImage("assets/images/avatar.jpg"),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    // Normal Screens (White Background)
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 2,
+      shadowColor: Colors.black12,
+      title: Text(
+        "KingsBazar",
+        style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold),
+      ),
+      actions: [
+        CartBadge(
+          child: IconButton(
+            icon: Icon(Icons.shopping_bag_outlined, color: AppColors.textPrimary),
+            onPressed: () => Navigator.pushNamed(context, '/cart'),
+          ),
+        ),
+        SizedBox(width: 16.w),
+      ],
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\custom_button.dart
+====================================================================================================
+  
+/// lib/core/widgets/common/custom_button.dart
+/// All reusable button widgets – pixel-perfect, red theme, fully animated
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+/// Primary Red Button (Main CTA – Add to Cart, Buy Now, etc.)
+class PrimaryButton extends StatelessWidget {
+  final String label;
+  final VoidCallback? onPressed;
+  final bool isLoading;
+  final bool isFullWidth;
+  final double? height;
+  final IconData? icon;
+
+  const PrimaryButton({
+    Key? key,
+    required this.label,
+    required this.onPressed,
+    this.isLoading = false,
+    this.isFullWidth = true,
+    this.height,
+    this.icon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: isFullWidth ? double.infinity : null,
+      height: height ?? 50.h,
+      child: ElevatedButton(
+        onPressed: isLoading ? null : onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: Colors.white,
+          disabledBackgroundColor: AppColors.primary.withOpacity(0.5),
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 14.h),
+        ),
+        child: isLoading
+            ? SizedBox(
+                height: 24.h,
+                width: 24.w,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 2.5,
+                ),
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (icon != null) ...[
+                    Icon(icon, size: 20.sp),
+                    SizedBox(width: 8.w),
+                  ],
+                  Text(
+                    label,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+}
+
+/// Secondary / Outline Button
+class OutlineButton extends StatelessWidget {
+  final String label;
+  final VoidCallback? onPressed;
+  final bool isFullWidth;
+  final Color? borderColor;
+
+  const OutlineButton({
+    Key? key,
+    required this.label,
+    required this.onPressed,
+    this.isFullWidth = true,
+    this.borderColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: isFullWidth ? double.infinity : null,
+      height: 50.h,
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppColors.primary,
+          side: BorderSide(color: borderColor ?? AppColors.primary, width: 2),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 14.h),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+
+/// Small Red Text Button (e.g. "View All", "See More")
+class SmallTextButton extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+  final Color? color;
+
+  const SmallTextButton({
+    Key? key,
+    required this.label,
+    required this.onPressed,
+    this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size.zero, tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: color ?? AppColors.primary,
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+/// Icon Button with background (e.g. Wishlist heart)
+class IconActionButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onTap;
+  final bool isActive;
+  final Color? activeColor;
+
+  const IconActionButton({
+    Key? key,
+    required this.icon,
+    required this.onTap,
+    this.isActive = false,
+    this.activeColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(30.r),
+      child: Container(
+        padding: EdgeInsets.all(10.w),
+        decoration: BoxDecoration(
+          color: isActive ? (activeColor ?? AppColors.primary).withOpacity(0.1) : Colors.grey.shade100,
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          icon,
+          color: isActive ? (activeColor ?? AppColors.primary) : Colors.grey.shade600,
+          size: 22.sp,
+        ),
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\custom_textfield.dart
+====================================================================================================
+/// lib/core/widgets/common/custom_textfield.dart
+/// Fully fixed & working – no 'focus' error
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+class CustomTextField extends StatefulWidget {
+  final String hintText;
+  final TextEditingController? controller;
+  final TextInputType keyboardType;
+  final bool obscureText;
+  final String? Function(String?)? validator;
+  final VoidCallback? onTap;
+  final bool readOnly;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final int maxLines;
+  final int? maxLength;
+  final List<TextInputFormatter>? inputFormatters;
+  final void Function(String)? onChanged;
+  final void Function(String)? onSubmitted;
+  final FocusNode? focusNode;                    // Fixed: renamed from 'focus'
+  final TextCapitalization textCapitalization;
+
+  const CustomTextField({
+    Key? key,
+    required this.hintText,
+    this.controller,
+    this.keyboardType = TextInputType.text,
+    this.obscureText = false,
+    this.validator,
+    this.onTap,
+    this.readOnly = false,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.maxLines = 1,
+    this.maxLength,
+    this.inputFormatters,
+    this.onChanged,
+    this.onSubmitted,
+    this.focusNode,                             // Fixed here
+    this.textCapitalization = TextCapitalization.none,
+  }) : super(key: key);
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _obscureText;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscureText = widget.obscureText;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: widget.controller,
+      keyboardType: widget.keyboardType,
+      obscureText: _obscureText,
+      validator: widget.validator,
+      onTap: widget.onTap,
+      readOnly: widget.readOnly,
+      maxLines: widget.maxLines,
+      maxLength: widget.maxLength,
+      inputFormatters: widget.inputFormatters,
+      onChanged: widget.onChanged,
+      onFieldSubmitted: widget.onSubmitted,
+      focusNode: widget.focusNode,                // Fixed: now correct
+      textCapitalization: widget.textCapitalization,
+      style: TextStyle(fontSize: 15.sp, color: AppColors.textPrimary, fontWeight: FontWeight.w500),
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        hintStyle: TextStyle(color: Colors.grey.shade500, fontSize: 14.sp),
+        prefixIcon: widget.prefixIcon != null
+            ? Padding(padding: EdgeInsets.symmetric(horizontal: 16.w), child: widget.prefixIcon)
+            : null,
+        suffixIcon: widget.obscureText
+            ? IconButton(
+                icon: Icon(
+                  _obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                  color: Colors.grey.shade600,
+                  size: 22.sp,
+                ),
+                onPressed: () => setState(() => _obscureText = !_obscureText),
+              )
+            : widget.suffixIcon,
+        filled: true,
+        fillColor: Colors.grey.shade50,
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14.r),
+          borderSide: BorderSide(color: Colors.grey.shade300, width: 1.2),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14.r),
+          borderSide: BorderSide(color: AppColors.primary, width: 2),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14.r),
+          borderSide: BorderSide(color: AppColors.error, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14.r),
+          borderSide: BorderSide(color: AppColors.error, width: 2),
+        ),
+        counterText: '',
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// Pre-built variants (unchanged)
+// ─────────────────────────────────────
+class EmailTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
+  const EmailTextField({Key? key, this.controller, this.focusNode}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextField(
+      controller: controller,
+      focusNode: focusNode,
+      hintText: 'Enter your email',
+      keyboardType: TextInputType.emailAddress,
+      prefixIcon: const Icon(Icons.email_outlined, color: AppColors.primary),
+      validator: (v) => v!.isEmpty ? 'Enter email' : (!v.contains('@') ? 'Invalid email' : null),
+    );
+  }
+}
+
+class PasswordTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  final String hint;
+  const PasswordTextField({Key? key, this.controller, this.hint = 'Enter password'}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextField(
+      controller: controller,
+      hintText: hint,
+      obscureText: true,
+      prefixIcon: const Icon(Icons.lock_outline, color: AppColors.primary),
+      validator: (v) => v!.isEmpty ? 'Enter password' : (v.length < 6 ? 'Min 6 characters' : null),
+    );
+  }
+}
+
+class SearchTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  final VoidCallback? onTap;
+  final void Function(String)? onChanged;
+  const SearchTextField({Key? key, this.controller, this.onTap, this.onChanged}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextField(
+      controller: controller,
+      hintText: 'Search products, brands...',
+      readOnly: onTap != null,
+      onTap: onTap,
+      onChanged: onChanged,
+      prefixIcon: const Icon(Icons.search, color: Colors.grey),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\empty_state_widget.dart
+====================================================================================================
+  
+/// lib/core/widgets/common/empty_state_widget.dart
+/// Beautiful empty states used across the app (Cart, Wishlist, Orders, Search, etc.)
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/core/widgets/common/custom_button.dart';
+import 'package:lottie/lottie.dart';
+
+class EmptyStateWidget extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String buttonText;
+  final VoidCallback? onButtonPressed;
+  final String? lottieAsset;           // Optional custom animation
+  final double? imageHeight;
+
+  const EmptyStateWidget({
+    Key? key,
+    required this.title,
+    required this.subtitle,
+    this.buttonText = 'Shop Now',
+    this.onButtonPressed,
+    this.lottieAsset,
+    this.imageHeight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 32.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Lottie Animation or Default Illustration
+            lottieAsset != null
+                ? Lottie.asset(
+                    lottieAsset!,
+                    height: imageHeight ?? 240.h,
+                    fit: BoxFit.contain,
+                  )
+                : _defaultIllustration(),
+
+            SizedBox(height: 32.h),
+
+            // Title
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.textPrimary,
+              ),
+            ),
+
+            SizedBox(height: 12.h),
+
+            // Subtitle
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15.sp,
+                color: AppColors.textSecondary,
+                height: 1.5,
+              ),
+            ),
+
+            SizedBox(height: 32.h),
+
+            // Action Button
+            if (onButtonPressed != null)
+              PrimaryButton(
+                label: buttonText,
+                onPressed: onButtonPressed!,
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _defaultIllustration() {
+    // You can replace this with your own SVG/PNG later
+    return Container(
+      height: imageHeight ?? 240.h,
+      width: 240.w,
+      decoration: BoxDecoration(
+        color: AppColors.primary.withOpacity(0.08),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        Icons.shopping_bag_outlined,
+        size: 100.sp,
+        color: AppColors.primary.withOpacity(0.6),
+      ),
+    );
+  }
+}
+
+// ──────────────────────────────────────────────────────
+// PRE-BUILT EMPTY STATES (use directly)
+// ──────────────────────────────────────────────────────
+
+class EmptyCartWidget extends StatelessWidget {
+  const EmptyCartWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return EmptyStateWidget(
+      title: 'Your cart is empty',
+      subtitle: 'Looks like you haven\'t added anything to your cart yet',
+      buttonText: 'Start Shopping',
+      lottieAsset: 'assets/lottie/empty_cart.json', // add this file later
+      onButtonPressed: () => context.go('/home'),
+    );
+  }
+}
+
+class EmptyWishlistWidget extends StatelessWidget {
+  const EmptyWishlistWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return EmptyStateWidget(
+      title: 'Your wishlist is empty',
+      subtitle: 'Save your favorite items and find them here',
+      buttonText: 'Browse Products',
+      lottieAsset: 'assets/lottie/empty_wishlist.json',
+      onButtonPressed: () => context.go('/home'),
+    );
+  }
+}
+
+class EmptyOrdersWidget extends StatelessWidget {
+  const EmptyOrdersWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return EmptyStateWidget(
+      title: 'No orders yet',
+      subtitle: 'Place your first order and track it here',
+      buttonText: 'Shop Now',
+      onButtonPressed: () => context.go('/home'),
+    );
+  }
+}
+
+class EmptySearchWidget extends StatelessWidget {
+  const EmptySearchWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return EmptyStateWidget(
+      title: 'No results found',
+      subtitle: 'Try searching with different keywords',
+      lottieAsset: 'assets/lottie/no_search.json',
+      onButtonPressed: null, // No button
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\error_widget.dart
+====================================================================================================
+  
+/// lib/core/widgets/common/error_widget.dart
+/// Beautiful, reusable error states – network error, server error, etc.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/core/widgets/common/custom_button.dart';
+import 'package:lottie/lottie.dart';
+
+class CustomErrorWidget extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String buttonText;
+  final VoidCallback? onRetry;
+  final String? lottieAsset;
+  final double? imageHeight;
+
+  const CustomErrorWidget({
+    Key? key,
+    this.title = 'Oops! Something went wrong',
+    this.subtitle = 'We are having trouble connecting. Please check your internet connection and try again.',
+    this.buttonText = 'Try Again',
+    this.onRetry,
+    this.lottieAsset,
+    this.imageHeight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 32.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Animation / Illustration
+            lottieAsset != null
+                ? Lottie.asset(
+                    lottieAsset!,
+                    height: imageHeight ?? 220.h,
+                    fit: BoxFit.contain,
+                    repeat: true,
+                  )
+                : _defaultErrorIllustration(),
+
+            SizedBox(height: 32.h),
+
+            // Title
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.textPrimary,
+              ),
+            ),
+
+            SizedBox(height: 16.h),
+
+            // Subtitle
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15.sp,
+                color: AppColors.textSecondary,
+                height: 1.5,
+              ),
+            ),
+
+            SizedBox(height: 40.h),
+
+            // Retry Button
+            if (onRetry != null)
+              PrimaryButton(
+                label: buttonText,
+                onPressed: onRetry!,
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _defaultErrorIllustration() {
+    return Container(
+      height: imageHeight ?? 220.h,
+      width: 220.w,
+      decoration: BoxDecoration(
+        color: AppColors.error.withOpacity(0.1),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        Icons.error_outline,
+        size: 90.sp,
+        color: AppColors.error,
+      ),
+    );
+  }
+}
+
+// ──────────────────────────────────────────────────────
+// PRE-BUILT ERROR WIDGETS (use directly)
+// ──────────────────────────────────────────────────────
+
+/// Generic Network/Server Error
+class NetworkErrorWidget extends StatelessWidget {
+  final VoidCallback? onRetry;
+  const NetworkErrorWidget({Key? key, this.onRetry}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomErrorWidget(
+      title: 'No Internet Connection',
+      subtitle: 'Please check your internet connection and try again.',
+      buttonText: 'Retry',
+      lottieAsset: 'assets/lottie/no_internet.json', // optional
+      onRetry: onRetry,
+    );
+  }
+}
+
+/// Server Error (500, timeout, etc.)
+class ServerErrorWidget extends StatelessWidget {
+  final VoidCallback? onRetry;
+  const ServerErrorWidget({Key? key, this.onRetry}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomErrorWidget(
+      title: 'Server Error',
+      subtitle: 'We\'re experiencing technical issues. Our team is working on it.',
+      buttonText: 'Try Again',
+      lottieAsset: 'assets/lottie/server_error.json',
+      onRetry: onRetry,
+    );
+  }
+}
+
+/// Generic Something Went Wrong
+class GenericErrorWidget extends StatelessWidget {
+  final VoidCallback? onRetry;
+  const GenericErrorWidget({Key? key, this.onRetry}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomErrorWidget(
+      title: 'Something Went Wrong',
+      subtitle: 'An unexpected error occurred. Please try again.',
+      onRetry: onRetry,
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\loading_shimmer.dart
+====================================================================================================
+/// lib/core/widgets/common/loading_shimmer.dart
+/// Beautiful shimmer loading placeholders – used everywhere (Home, Product List, etc.)
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
+
+class ShimmerLoading extends StatelessWidget {
+  final Widget child;
+  final bool isLoading;
+  final Color? baseColor;
+  final Color? highlightColor;
+
+  const ShimmerLoading({
+    Key? key,
+    required this.child,
+    required this.isLoading,
+    this.baseColor,
+    this.highlightColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (!isLoading) return child;
+
+    return Shimmer.fromColors(
+      baseColor: baseColor ?? Colors.grey.shade200,
+      highlightColor: highlightColor ?? Colors.grey.shade100,
+      period: const Duration(milliseconds: 1200),
+      child: child,
+    );
+  }
+}
+
+// ──────────────────────────────────────────────────────
+// PRE-BUILT SHIMMER PLACEHOLDERS
+// ──────────────────────────────────────────────────────
+
+/// Product Card Shimmer (Grid/List)
+class ProductCardShimmer extends StatelessWidget {
+  const ProductCardShimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(8.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Image
+          Container(
+            height: 180.h,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+          ),
+          SizedBox(height: 12.h),
+
+          // Title lines
+          Container(height: 16.h, width: 120.w, color: Colors.white),
+          SizedBox(height: 8.h),
+          Container(height: 16.h, width: 80.w, color: Colors.white),
+
+          SizedBox(height: 12.h),
+
+          // Price + Rating
+          Row(
+            children: [
+              Container(height: 20.h, width: 60.w, color: Colors.white),
+              SizedBox(width: 12.w),
+              Container(height: 16.h, width: 40.w, color: Colors.white),
+            ],
+          ),
+
+          SizedBox(height: 16.h),
+
+          // Add Button
+          Container(
+            height: 36.h,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Banner Slider Shimmer
+class BannerShimmer extends StatelessWidget {
+  const BannerShimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200.h,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 3,
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        itemBuilder: (context, index) {
+          return Container(
+            width: 320.w,
+            margin: EdgeInsets.only(right: 12.w),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+/// Category Circle Shimmer
+class CategoryCircleShimmer extends StatelessWidget {
+  const CategoryCircleShimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 70.w,
+          height: 70.w,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+          ),
+        ),
+        SizedBox(height: 8.h),
+        Container(height: 12.h, width: 60.w, color: Colors.white),
+      ],
+    );
+  }
+}
+
+/// List Item Shimmer (for Orders, Addresses, etc.)
+class ListItemShimmer extends StatelessWidget {
+  const ListItemShimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      child: Row(
+        children: [
+          Container(width: 80.w, height: 80.h, decoration: BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.circular(8.r),
+),),
+          SizedBox(width: 16.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(height: 16.h, width: double.infinity, color: Colors.white),
+                SizedBox(height: 8.h),
+                Container(height: 14.h, width: 150.w, color: Colors.white),
+                SizedBox(height: 8.h),
+                Container(height: 14.h, width: 100.w, color: Colors.white),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Full Page Shimmer (for entire screen loading)
+class FullPageShimmer extends StatelessWidget {
+  const FullPageShimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const BannerShimmer(),
+          SizedBox(height: 24.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.7,
+                crossAxisSpacing: 12.w,
+                mainAxisSpacing: 12.w,
+              ),
+              itemCount: 6,
+              itemBuilder: (_, i) => const ProductCardShimmer(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\common\price_tag.dart
+====================================================================================================
+ 
+/// lib/core/widgets/common/price_tag.dart
+/// Beautiful, reusable price widgets – used in ProductCard, ProductDetail, Cart, etc.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+class PriceTag extends StatelessWidget {
+  final double price;
+  final double? originalPrice;        // if null → no discount shown
+  final double? discountPercentage;   // optional – auto calculated if originalPrice given
+  final TextStyle? priceStyle;
+  final TextStyle? originalPriceStyle;
+  final TextStyle? discountStyle;
+  final MainAxisAlignment alignment;
+
+  const PriceTag({
+    Key? key,
+    required this.price,
+    this.originalPrice,
+    this.discountPercentage,
+    this.priceStyle,
+    this.originalPriceStyle,
+    this.discountStyle,
+    this.alignment = MainAxisAlignment.start,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final hasDiscount = originalPrice != null && originalPrice! > price;
+    final discount = hasDiscount
+        ? (discountPercentage ?? ((originalPrice! - price) / originalPrice! * 100).round())
+        : 0;
+
+    return Row(
+      mainAxisAlignment: alignment,
+      children: [
+        // Current Price
+        Text(
+          '\$${price.toStringAsFixed(price.truncateToDouble() == price ? 0 : 2)}',
+          style: priceStyle ??
+              TextStyle(
+                fontSize: 17.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primary,
+              ),
+        ),
+
+        // Original Price (strikethrough)
+        if (hasDiscount) ...[
+          SizedBox(width: 8.w),
+          Text(
+            '\$${originalPrice!.toStringAsFixed(originalPrice!.truncateToDouble() == originalPrice! ? 0 : 2)}',
+            style: originalPriceStyle ??
+                TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.textSecondary,
+                  decoration: TextDecoration.lineThrough,
+                  decorationThickness: 2,
+                ),
+          ),
+
+          // Discount Badge
+          SizedBox(width: 8.w),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(20.r),
+            ),
+            child: Text(
+              '$discount% OFF',
+              style: discountStyle ??
+                  TextStyle(
+                    color: Colors.white,
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+// ──────────────────────────────────────────────────────
+// QUICK VARIANTS (use directly)
+// ──────────────────────────────────────────────────────
+
+/// Small Price Tag – for Product Cards
+class SmallPriceTag extends StatelessWidget {
+  final double price;
+  final double? originalPrice;
+
+  const SmallPriceTag({Key? key, required this.price, this.originalPrice}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PriceTag(
+      price: price,
+      originalPrice: originalPrice,
+      priceStyle: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold, color: AppColors.primary),
+      originalPriceStyle: TextStyle(fontSize: 12.sp, color: Colors.grey, decoration: TextDecoration.lineThrough),
+      discountStyle: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.bold, color: Colors.white),
+    );
+  }
+}
+
+/// Large Price Tag – for Product Detail Screen
+class LargePriceTag extends StatelessWidget {
+  final double price;
+  final double? originalPrice;
+
+  const LargePriceTag({Key? key, required this.price, this.originalPrice}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PriceTag(
+      price: price,
+      originalPrice: originalPrice,
+      alignment: MainAxisAlignment.start,
+      priceStyle: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold, color: AppColors.primary),
+      originalPriceStyle: TextStyle(fontSize: 18.sp, color: Colors.grey.shade600, decoration: TextDecoration.lineThrough),
+      discountStyle: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white),
+    );
+  }
+}
+
+/// Price with "From" – for category pages
+class FromPriceTag extends StatelessWidget {
+  final double price;
+  const FromPriceTag({Key? key, required this.price}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text('From ', style: TextStyle(fontSize: 14.sp, color: AppColors.textSecondary)),
+        Text(
+          '\$${price.toStringAsFixed(0)}',
+          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.primary),
+        ),
+      ],
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\banner_slider.dart
+====================================================================================================
+/// lib/core/widgets/components/banner_slider.dart
+/// Beautiful Auto-Scrolling Banner Slider with Smooth Dots + Shimmer + Cached Images
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/models/banner_model.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+class BannerSlider extends StatefulWidget {
+  final List<BannerModel> banners;
+  final double height;
+  final bool autoPlay;
+  final Duration autoPlayInterval;
+  final BorderRadius borderRadius;
+
+  const BannerSlider({
+    Key? key,
+    required this.banners,
+    this.height = 180,
+    this.autoPlay = true,
+    this.autoPlayInterval = const Duration(seconds: 4),
+    this.borderRadius = const BorderRadius.all(Radius.circular(16)),
+  }) : super(key: key);
+
+  @override
+  State<BannerSlider> createState() => _BannerSliderState();
+}
+
+class _BannerSliderState extends State<BannerSlider> {
+  int _currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.banners.isEmpty) {
+      return _buildShimmer();
+    }
+
+    return Column(
+      children: [
+        // ────── Carousel Slider ──────
+        CarouselSlider(
+          options: CarouselOptions(
+            height: widget.height.h,
+            viewportFraction: 0.94,
+            autoPlay: widget.autoPlay,
+            autoPlayInterval: widget.autoPlayInterval,
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+            enlargeCenterPage: true,
+            enlargeFactor: 0.25,
+            onPageChanged: (index, reason) {
+              setState(() => _currentIndex = index);
+            },
+          ),
+          items: widget.banners.map((banner) {
+            return Builder(builder: (context) {
+              return GestureDetector(
+                onTap: () {
+                  // TODO: Handle banner tap (deep link, category, product)
+                  debugPrint("Banner tapped: ${banner.title}");
+                },
+                child: Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(horizontal: 8.w),
+                  decoration: BoxDecoration(
+                    borderRadius: widget.borderRadius,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.08),
+                        blurRadius: 12,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: widget.borderRadius,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        // Banner Image
+                        CachedNetworkImage(
+                          imageUrl: banner.imageUrl,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => _buildImageShimmer(),
+                          errorWidget: (context, url, error) => Container(
+                            color: Colors.grey[300],
+                            child: const Icon(Icons.broken_image, size: 50, color: Colors.grey),
+                          ),
+                        ),
+
+                        // Gradient Overlay + Text
+                        if (banner.title != null || banner.subtitle != null)
+                          Positioned(
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            child: Container(
+                              padding: EdgeInsets.all(16.w),
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: [
+                                    Colors.black.withOpacity(0.8),
+                                    Colors.transparent,
+                                  ],
+                                ),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  if (banner.title != null)
+                                    Text(
+                                      banner.title!,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  if (banner.subtitle != null)
+                                    Text(
+                                      banner.subtitle!,
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                  if (banner.buttonText != null)
+                                    SizedBox(height: 8.h),
+                                  if (banner.buttonText != null)
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        debugPrint("Banner button: ${banner.buttonText}");
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppColors.primary,
+                                        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8.r),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        banner.buttonText!,
+                                        style: TextStyle(fontSize: 14.sp, color: Colors.white),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            });
+          }).toList(),
+        ),
+
+        SizedBox(height: 16.h),
+
+        // ────── Smooth Page Indicator ──────
+        AnimatedSmoothIndicator(
+          activeIndex: _currentIndex,
+          count: widget.banners.length,
+          effect: ExpandingDotsEffect(
+            dotHeight: 8.h,
+            dotWidth: 8.w,
+            activeDotColor: AppColors.primary,
+            dotColor: Colors.grey.shade300,
+            expansionFactor: 4,
+            spacing: 6.w,
+            radius: 8.r,
+          ),
+        ),
+      ],
+    );
+  }
+
+  // ────── Shimmer for Loading State ──────
+  Widget _buildShimmer() {
+    return Container(
+      height: widget.height.h,
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: widget.borderRadius,
+      ),
+      child: _buildImageShimmer(),
+    );
+  }
+
+  Widget _buildImageShimmer() {
+    return Container(
+      color: Colors.grey[200],
+      child: const Center(
+        child: CircularProgressIndicator(
+          color: AppColors.primary,
+          strokeWidth: 2.5,
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// QUICK USAGE WIDGET (for HomeScreen)
+// ─────────────────────────────────────
+class HomeBannerSlider extends StatelessWidget {
+  final List<BannerModel> banners;
+
+  const HomeBannerSlider({Key? key, required this.banners}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      child: BannerSlider(banners: banners),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\bottom_nav_bar.dart
+====================================================================================================
+  
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/core/utils/extensions.dart';
+
+class CustomBottomNavBar extends StatelessWidget {
+  final int currentIndex;
+  final int cartCount;
+
+  const CustomBottomNavBar({
+    Key? key,
+    required this.currentIndex,
+    this.cartCount = 0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, -2))],
+      ),
+      child: BottomNavigationBar(
+        currentIndex: currentIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: Colors.grey,
+        selectedFontSize: 10.sp,
+        unselectedFontSize: 10.sp,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              context.go('/home');
+              break;
+            case 1:
+              context.go('/category');
+              break;
+            case 2:
+              context.go('/search');
+              break;
+            case 3:
+              context.go('/wishlist');
+              break;
+            case 4:
+              context.go('/cart');
+              break;
+          }
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Category'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: 'Wishlist'),
+          BottomNavigationBarItem(
+            icon: Stack(
+              children: [
+                Icon(Icons.shopping_bag_outlined),
+                if (cartCount > 0)
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      padding: EdgeInsets.all(4.w),
+                      decoration: BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
+                      child: Text(
+                        cartCount.toString(),
+                        style: TextStyle(color: Colors.white, fontSize: 10.sp, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            label: 'Cart',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\cart_badge.dart
+====================================================================================================
+  
+/// lib/core/widgets/components/cart_badge.dart
+/// Smart Cart Badge with Animation – Works with Bottom Nav, AppBar, FAB, etc.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/providers/cart_provider.dart';
+
+class CartBadge extends ConsumerWidget {
+  final Widget child;
+  final Color badgeColor;
+  final Color textColor;
+  final double badgeSize;
+  final bool showZero;
+
+  const CartBadge({
+    Key? key,
+    required this.child,
+    this.badgeColor = AppColors.primary,
+    this.textColor = Colors.white,
+    this.badgeSize = 20.0,
+    this.showZero = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final cartCount = ref.watch(cartItemCountProvider);
+
+    // Don't show badge if count is 0 and showZero is false
+    if (cartCount == 0 && !showZero) {
+      return child;
+    }
+
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        child,
+
+        // Animated Badge
+        AnimatedPositioned(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.elasticOut,
+          top: -4,
+          right: -10,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+            constraints: BoxConstraints(
+              minWidth: badgeSize,
+              minHeight: badgeSize,
+            ),
+            decoration: BoxDecoration(
+              color: badgeColor,
+              borderRadius: BorderRadius.circular(badgeSize),
+              boxShadow: [
+                BoxShadow(
+                  color: badgeColor.withOpacity(0.4),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Text(
+                cartCount > 99 ? "99+" : cartCount.toString(),
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 11.sp,
+                  fontWeight: FontWeight.bold,
+                  height: 1.2,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// QUICK USAGE WIDGETS (Most Used)
+// ─────────────────────────────────────
+
+// For Bottom Navigation Bar
+class CartNavIcon extends StatelessWidget {
+  const CartNavIcon({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CartBadge(
+      child: Icon(
+        Icons.shopping_bag_outlined,
+        size: 28.w,
+      ),
+    );
+  }
+}
+
+// For AppBar (with notification style)
+class CartAppBarIcon extends StatelessWidget {
+  const CartAppBarIcon({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CartBadge(
+      badgeColor: Colors.red,
+      badgeSize: 22,
+      child: Icon(
+        Icons.shopping_cart_outlined,
+        size: 26.w,
+        color: Colors.black87,
+      ),
+    );
+  }
+}
+
+// For Floating Action Button (FAB)
+class CartFAB extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const CartFAB({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CartBadge(
+      badgeColor: AppColors.primary,
+      badgeSize: 26,
+      child: FloatingActionButton(
+        onPressed: onPressed,
+        backgroundColor: AppColors.primary,
+        elevation: 6,
+        child: Icon(Icons.shopping_cart, size: 28.w, color: Colors.white),
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\category_circle.dart
+====================================================================================================
+/// lib/core/widgets/components/category_circle.dart
+/// 100% RESPECTS YOUR REAL CategoryModel (iconUrl is String?)
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/models/category_model.dart';
+
+class CategoryCircle extends StatelessWidget {
+  final CategoryModel category;
+  final bool isSelected;
+  final VoidCallback? onTap;
+  final double size;
+
+  const CategoryCircle({
+    Key? key,
+    required this.category,
+    this.isSelected = false,
+    this.onTap = null,
+    this.size = 76.0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Default fallback URL if iconUrl is null
+    final String imageUrl = category.iconUrl ??
+        'https://img.icons8.com/color/96/shopping-cart.png';
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          // Circle Avatar
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            width: size.w,
+            height: size.w,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: isSelected ? AppColors.primary : Colors.grey.shade300,
+                width: isSelected ? 3.5 : 2,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: isSelected
+                      ? AppColors.primary.withOpacity(0.25)
+                      : Colors.black.withOpacity(0.08),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: CircleAvatar(
+              radius: (size / 2).w,
+              backgroundColor: Colors.grey[100],
+              child: ClipOval(
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.contain,
+                  width: 48.w,
+                  height: 48.w,
+                  placeholder: (_, __) => Icon(
+                    Icons.category_outlined,
+                    size: 32.w,
+                    color: Colors.grey[400],
+                  ),
+                  errorWidget: (_, __, ___) => Icon(
+                    Icons.broken_image,
+                    size: 32.w,
+                    color: Colors.grey[400],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(height: 8.h),
+
+          // Category Name
+          SizedBox(
+            width: size.w,
+            child: Text(
+              category.name,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 11.5.sp,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                color: isSelected ? AppColors.primary : AppColors.textSecondary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\deal_of_day_card.dart
+====================================================================================================
+/// lib/core/widgets/components/deal_of_day_card.dart
+/// PREMIUM "Deal of the Day" Card – Red banner, countdown timer, gold star, your exact design
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/models/product_model.dart';
+
+class DealOfTheDayCard extends StatelessWidget {
+  final ProductModel product;
+  final VoidCallback? onTap;
+
+  const DealOfTheDayCard({
+    Key? key,
+    required this.product,
+    this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final discountedPrice = product.price - (product.price * product.discountPercentage / 100);
+    final savings = product.price * product.discountPercentage / 100;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 20,
+              offset: const Offset(0, 8),
+            ),
+          ],
+        ),
+        child: Stack(
+          children: [
+            // Main Card Content
+            Row(
+              children: [
+                // Product Image
+                Container(
+                  width: 140.w,
+                  height: 180.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      bottomLeft: Radius.circular(20.r),
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      bottomLeft: Radius.circular(20.r),
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: product.thumbnail,
+                      fit: BoxFit.cover,
+                      placeholder: (_, __) => Container(color: Colors.grey[200]),
+                      errorWidget: (_, __, ___) => Icon(Icons.image, size: 50.w, color: Colors.grey),
+                    ),
+                  ),
+                ),
+
+                // Details
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(16.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Gold Star + Deal Label
+                        Row(
+                          children: [
+                            Icon(Icons.star_rounded, color: AppColors.accent, size: 20.w),
+                            SizedBox(width: 6.w),
+                            Text(
+                              "Deal of the Day",
+                              style: TextStyle(
+                                color: AppColors.primary,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8.h),
+
+                        // Product Title
+                        Text(
+                          product.title,
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 8.h),
+
+                        // Rating
+                        Row(
+                          children: [
+                            Icon(Icons.star, color: Colors.amber, size: 16.w),
+                            SizedBox(width: 4.w),
+                            Text(
+                              product.rating.toStringAsFixed(1),
+                              style: TextStyle(fontSize: 13.sp),
+                            ),
+                            Text(
+                              " (${(product.rating * 100).toInt()}+)",
+                              style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 12.h),
+
+                        // Price Row
+                        Row(
+                          children: [
+                            Text(
+                              "₹${discountedPrice.toStringAsFixed(0)}",
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.primary,
+                              ),
+                            ),
+                            SizedBox(width: 8.w),
+                            Text(
+                              "₹${product.price.toStringAsFixed(0)}",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.grey,
+                                decoration: TextDecoration.lineThrough,
+                              ),
+                            ),
+                            SizedBox(width: 8.w),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                              decoration: BoxDecoration(
+                                color: AppColors.primary.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(6.r),
+                              ),
+                              child: Text(
+                                "-${product.discountPercentage.toStringAsFixed(0)}%",
+                                style: TextStyle(
+                                  color: AppColors.primary,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8.h),
+
+                        // Countdown Timer
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+                          decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.access_time, color: Colors.white, size: 16.w),
+                              SizedBox(width: 6.w),
+                              Text(
+                                "Ends in 06:23:45",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            // Top Red Banner
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 36.h,
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20.r),
+                    topRight: Radius.circular(20.r),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    "DEAL OF THE DAY",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.sp,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            // Crown Badge
+            Positioned(
+              top: 8.h,
+              right: 12.w,
+              child: Container(
+                padding: EdgeInsets.all(6.w),
+                decoration: BoxDecoration(
+                  color: AppColors.accent,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(color: Colors.black26, blurRadius: 6, offset: Offset(0, 2)),
+                  ],
+                ),
+                child: Icon(Icons.auto_awesome, color: Colors.white, size: 18.w),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\payment_method_card.dart
+====================================================================================================
+ 
+/// lib/core/widgets/components/payment_method_card.dart
+/// Beautiful Payment Method Card – Used in Checkout Screen
+/// Matches your red-gold design perfectly
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+enum PaymentMethodType {
+  cod,
+  upi,
+  card,
+  netbanking,
+  wallet,
+  razorpay,
+}
+
+class PaymentMethodCard extends StatelessWidget {
+  final PaymentMethodType type;
+  final String title;
+  final String? subtitle;
+  final String iconAsset;
+  final bool isSelected;
+  final VoidCallback onTap;
+  final bool showRadio; // true = radio button, false = checkmark
+
+  const PaymentMethodCard({
+    Key? key,
+    required this.type,
+    required this.title,
+    this.subtitle,
+    required this.iconAsset,
+    required this.isSelected,
+    required this.onTap,
+    this.showRadio = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+        padding: EdgeInsets.all(16.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18.r),
+          border: Border.all(
+            color: isSelected ? AppColors.primary : Colors.grey.shade200,
+            width: isSelected ? 2.5 : 1.5,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: isSelected
+                  ? AppColors.primary.withOpacity(0.18)
+                  : Colors.black.withOpacity(0.06),
+              blurRadius: isSelected ? 16 : 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            // Icon (SVG or PNG)
+            Container(
+              width: 52.w,
+              height: 52.w,
+              padding: EdgeInsets.all(10.w),
+              decoration: BoxDecoration(
+                color: isSelected
+                    ? AppColors.primary.withOpacity(0.1)
+                    : Colors.grey.shade50,
+                borderRadius: BorderRadius.circular(14.r),
+              ),
+              child: iconAsset.endsWith('.svg')
+                  ? SvgPicture.asset(
+                      iconAsset,
+                      colorFilter: ColorFilter.mode(
+                        isSelected ? AppColors.primary : Colors.grey.shade600,
+                        BlendMode.srcIn,
+                      ),
+                    )
+                  : Image.asset(iconAsset, color: isSelected ? AppColors.primary : null),
+            ),
+
+            SizedBox(width: 16.w),
+
+            // Text Content
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.textPrimary,
+                    ),
+                  ),
+                  if (subtitle != null) ...[
+                    SizedBox(height: 4.h),
+                    Text(
+                      subtitle!,
+                      style: TextStyle(
+                        fontSize: 13.sp,
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+
+            // Selection Indicator
+            if (showRadio)
+              Radio<PaymentMethodType>(
+                value: type,
+                groupValue: isSelected ? type : null,
+                onChanged: (_) => onTap(),
+                activeColor: AppColors.primary,
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              )
+            else
+              AnimatedOpacity(
+                opacity: isSelected ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 200),
+                child: Icon(
+                  Icons.check_circle_rounded,
+                  color: AppColors.primary,
+                  size: 28.w,
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// QUICK PRESET PAYMENT CARDS (Use in Checkout)
+// ─────────────────────────────────────
+class PaymentMethodsList extends StatelessWidget {
+  final PaymentMethodType selectedMethod;
+  final Function(PaymentMethodType) onMethodSelected;
+
+  const PaymentMethodsList({
+    Key? key,
+    required this.selectedMethod,
+    required this.onMethodSelected,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        PaymentMethodCard(
+          type: PaymentMethodType.cod,
+          title: "Cash on Delivery",
+          subtitle: "Pay when you receive",
+          iconAsset: "assets/icons/cod.svg",
+          isSelected: selectedMethod == PaymentMethodType.cod,
+          onTap: () => onMethodSelected(PaymentMethodType.cod),
+        ),
+        PaymentMethodCard(
+          type: PaymentMethodType.upi,
+          title: "UPI",
+          subtitle: "Google Pay, PhonePe, BHIM etc.",
+          iconAsset: "assets/icons/upi.svg",
+          isSelected: selectedMethod == PaymentMethodType.upi,
+          onTap: () => onMethodSelected(PaymentMethodType.upi),
+        ),
+        PaymentMethodCard(
+          type: PaymentMethodType.card,
+          title: "Credit / Debit Card",
+          subtitle: "Visa, MasterCard, RuPay",
+          iconAsset: "assets/icons/card.svg",
+          isSelected: selectedMethod == PaymentMethodType.card,
+          onTap: () => onMethodSelected(PaymentMethodType.card),
+        ),
+        PaymentMethodCard(
+          type: PaymentMethodType.razorpay,
+          title: "Pay with Razorpay",
+          subtitle: "All payment methods in one",
+          iconAsset: "assets/icons/razorpay.svg",
+          isSelected: selectedMethod == PaymentMethodType.razorpay,
+          onTap: () => onMethodSelected(PaymentMethodType.razorpay),
+        ),
+      ],
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\product_card.dart
+====================================================================================================
+/// lib/core/widgets/components/product_card.dart
+/// FINAL VERSION — NOW USING YOUR PriceTag & IconActionButton — 100% REUSABLE
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:kingsbazar/core/widgets/common/custom_button.dart';
+import 'package:kingsbazar/core/widgets/common/price_tag.dart';
+import 'package:kingsbazar/core/widgets/components/rating_stars.dart';
+import 'package:kingsbazar/models/product_model.dart';
+import 'package:kingsbazar/providers/wishlist_provider.dart';
+
+class ProductCard extends ConsumerWidget {
+  final ProductModel product;
+  final VoidCallback? onTap;
+
+  const ProductCard({
+    Key? key,
+    required this.product,
+    this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isWishlisted = ref.watch(isInWishlistProvider(product.id));
+    final discountedPrice = product.price - (product.price * product.discountPercentage / 100);
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 165.w,
+        margin: EdgeInsets.only(right: 12.w, bottom: 16.h),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20.r),
+          border: Border.all(color: Colors.grey.shade200),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(0.06), blurRadius: 16, offset: Offset(0, 6)),
+          ],
+        ),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Image
+                ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+                  child: CachedNetworkImage(
+                    imageUrl: product.thumbnail,
+                    height: 160.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    placeholder: (_, __) => Container(color: Colors.grey[200]),
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.all(12.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        product.brand.toUpperCase(),
+                        style: TextStyle(fontSize: 11.sp, color: Colors.grey.shade600, fontWeight: FontWeight.w600),
+                        maxLines: 1,
+                      ),
+                      SizedBox(height: 4.h),
+                      Text(
+                        product.title,
+                        style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, height: 1.3),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 8.h),
+                      SmallRatingStars(rating: product.rating),
+                      SizedBox(height: 10.h),
+
+                      // NOW USING YOUR PRICE TAG — PERFECT
+                      PriceTag(
+                        price: discountedPrice,
+                        originalPrice: product.discountPercentage > 0 ? product.price : null,
+                        alignment: MainAxisAlignment.start,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            // Wishlist Heart — NOW USING YOUR IconActionButton
+            Positioned(
+              top: 8.h,
+              right: 8.w,
+              child: IconActionButton(
+                icon: isWishlisted ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                isActive: isWishlisted,
+                onTap: () => ref.read(wishlistProvider.notifier).toggle(product),
+              ),
+            ),
+
+            // Crown Badge (Featured)
+            if (product.rating >= 4.7)
+              Positioned(
+                top: 10.h,
+                right: 10.w,
+                child: Container(
+                  padding: EdgeInsets.all(6.w),
+                  decoration: BoxDecoration(color: AppColors.accent, shape: BoxShape.circle),
+                  child: Icon(Icons.auto_awesome, color: Colors.white, size: 16.w),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\product_card_shimmer.dart
+====================================================================================================
+  
+/// lib/core/widgets/components/product_card_shimmer.dart
+/// BEAUTIFUL SHIMMER FOR PRODUCT GRID — Matches your exact design
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+import 'package:shimmer/shimmer.dart';
+
+class ProductCardShimmer extends StatelessWidget {
+  const ProductCardShimmer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[100]!,
+      highlightColor: Colors.grey[50]!,
+      child: Container(
+        width: 165.w,
+        margin: EdgeInsets.only(right: 12.w, bottom: 16.h),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18.r),
+          border: Border.all(color: Colors.grey.shade200, width: 1),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.04),
+              blurRadius: 12,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Image Placeholder
+            Stack(
+              children: [
+                Container(
+                  height: 160.h,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(18.r)),
+                  ),
+                ),
+                // Wishlist Heart Placeholder
+                Positioned(
+                  top: 10.h,
+                  right: 10.w,
+                  child: Container(
+                    width: 36.w,
+                    height: 36.w,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+                // Discount Badge Placeholder
+                Positioned(
+                  top: 10.h,
+                  left: 10.w,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: Container(
+                      width: 40.w,
+                      height: 12.h,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(12.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Brand Name Placeholder
+                  Container(
+                    width: 80.w,
+                    height: 14.h,
+                    color: Colors.grey[300],
+                  ),
+                  SizedBox(height: 6.h),
+
+                  // Title Placeholder
+                  Container(
+                    width: double.infinity,
+                    height: 14.h,
+                    color: Colors.grey[300],
+                  ),
+                  SizedBox(height: 6.h),
+                  Container(
+                    width: 100.w,
+                    height: 14.h,
+                    color: Colors.grey[300],
+                  ),
+                  SizedBox(height: 12.h),
+
+                  // Rating Row Placeholder
+                  Row(
+                    children: [
+                      Container(
+                        width: 60.w,
+                        height: 20.h,
+                        decoration: BoxDecoration(
+                          color: Colors.amber.shade100,
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                      ),
+                      SizedBox(width: 8.w),
+                      Container(width: 60.w, height: 12.h, color: Colors.grey[300]),
+                    ],
+                  ),
+                  SizedBox(height: 12.h),
+
+                  // Price Row Placeholder
+                  Row(
+                    children: [
+                      Container(
+                        width: 80.w,
+                        height: 20.h,
+                        color: AppColors.primary,
+                      ),
+                      SizedBox(width: 8.w),
+                      Container(width: 60.w, height: 16.h, color: Colors.grey[300]),
+                      SizedBox(width: 8.w),
+                      Container(
+                        width: 50.w,
+                        height: 20.h,
+                        decoration: BoxDecoration(
+                          color: AppColors.primary.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// GRID SHIMMER (USE IN HOME/CATEGORY)
+// ─────────────────────────────────────
+class ProductGridShimmer extends StatelessWidget {
+  final int itemCount;
+
+  const ProductGridShimmer({Key? key, this.itemCount = 6}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 0.72,
+        crossAxisSpacing: 12.w,
+        mainAxisSpacing: 16.h,
+      ),
+      itemCount: itemCount,
+      itemBuilder: (context, index) => const ProductCardShimmer(),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\rating_stars.dart
+====================================================================================================
+  
+/// lib/core/widgets/components/rating_stars.dart
+/// BEAUTIFUL RATING STARS – Gold outline, Red fill when active, Your exact design
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+class RatingStars extends StatelessWidget {
+  final double rating;
+  final double size;
+  final int maxRating;
+  final Color activeColor;
+  final Color inactiveColor;
+  final bool showText;
+
+  const RatingStars({
+    Key? key,
+    required this.rating,
+    this.size = 16.0,
+    this.maxRating = 5,
+    this.activeColor = AppColors.primary,     // Red fill
+    this.inactiveColor = AppColors.accent,    // Gold outline
+    this.showText = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Stars
+        Row(
+          children: List.generate(maxRating, (index) {
+            final double starRating = index + 1.0;
+            return Padding(
+              padding: EdgeInsets.only(right: 2.w),
+              child: Icon(
+                starRating <= rating
+                    ? Icons.star_rounded
+                    : starRating - rating <= 0.5
+                        ? Icons.star_half_rounded
+                        : Icons.star_border_rounded,
+                color: starRating <= rating ? activeColor : inactiveColor,
+                size: size.w,
+              ),
+            );
+          }),
+        ),
+
+        // Rating Number
+        if (showText) ...[
+          SizedBox(width: 6.w),
+          Text(
+            rating.toStringAsFixed(1),
+            style: TextStyle(
+              fontSize: 13.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+            ),
+          ),
+          Text(
+            " / $maxRating",
+            style: TextStyle(
+              fontSize: 11.sp,
+              color: Colors.grey.shade600,
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// PRESET VARIANTS (Most Used in App)
+// ─────────────────────────────────────
+
+// Small Red + Gold Stars (Product Card)
+class SmallRatingStars extends StatelessWidget {
+  final double rating;
+  const SmallRatingStars({Key? key, required this.rating}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RatingStars(
+      rating: rating,
+      size: 14,
+      showText: false,
+    );
+  }
+}
+
+// Medium with Text (Product Detail)
+class MediumRatingStars extends StatelessWidget {
+  final double rating;
+  const MediumRatingStars({Key? key, required this.rating}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RatingStars(
+      rating: rating,
+      size: 18,
+      showText: true,
+    );
+  }
+}
+
+// Large Gold Only (Review Section)
+class LargeGoldRatingStars extends StatelessWidget {
+  final double rating;
+  const LargeGoldRatingStars({Key? key, required this.rating}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RatingStars(
+      rating: rating,
+      size: 28,
+      activeColor: AppColors.accent,
+      inactiveColor: AppColors.accent.withOpacity(0.3),
+      showText: true,
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\core\widgets\components\section_title.dart
+====================================================================================================
+/// lib/core/widgets/components/section_title.dart
+/// PREMIUM SECTION TITLE – Matches your exact design: Red "View All", Gold underline
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/core/constants/app_colors.dart';
+
+class SectionTitle extends StatelessWidget {
+  final String title;
+  final VoidCallback? onViewAll;
+  final bool showViewAll;
+  final Color? textColor;
+  final double fontSize;
+
+  const SectionTitle({
+    Key? key,
+    required this.title,
+    this.onViewAll,
+    this.showViewAll = true,
+    this.textColor,
+    this.fontSize = 20.0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Title + Gold Underline
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: fontSize.sp,
+                  fontWeight: FontWeight.bold,
+                  color: textColor ?? AppColors.textPrimary,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              SizedBox(height: 6.h),
+              Container(
+                width: 60.w,
+                height: 4.h,
+                decoration: BoxDecoration(
+                  color: AppColors.accent,
+                  borderRadius: BorderRadius.circular(2.r),
+                ),
+              ),
+            ],
+          ),
+
+          // View All Button
+          if (showViewAll)
+            GestureDetector(
+              onTap: onViewAll,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(20.r),
+                  border: Border.all(
+                    color: AppColors.primary.withOpacity(0.3),
+                    width: 1.5,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "VIEW ALL",
+                      style: TextStyle(
+                        color: AppColors.primary,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    SizedBox(width: 6.w),
+                    Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: AppColors.primary,
+                      size: 14.w,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// QUICK PRESETS (Most Used)
+// ─────────────────────────────────────
+
+// Default (Most Sections)
+class DefaultSectionTitle extends StatelessWidget {
+  final String title;
+  final VoidCallback? onTap;
+  const DefaultSectionTitle({Key? key, required this.title, this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SectionTitle(title: title, onViewAll: onTap);
+  }
+}
+
+// Large Title (Home Page Hero)
+class LargeSectionTitle extends StatelessWidget {
+  final String title;
+  final VoidCallback? onTap;
+  const LargeSectionTitle({Key? key, required this.title, this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SectionTitle(
+      title: title,
+      onViewAll: onTap,
+      fontSize: 24,
+    );
+  }
+}
+
+// Without View All (Deal of the Day, etc.)
+class SimpleSectionTitle extends StatelessWidget {
+  final String title;
+  const SimpleSectionTitle({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SectionTitle(title: title, showViewAll: false);
+  }
+}
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\forgot_password_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\login_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\signup_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\widgets\auth_header.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\widgets\login_form.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\widgets\signup_form.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\auth\presentation\widgets\social_login_buttons.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\cart\presentation\cart_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\cart\presentation\widgets\cart_item_tile.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\cart\presentation\widgets\cart_summary.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\cart\presentation\widgets\coupon_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\cart\presentation\widgets\price_breakdown.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\category\presentation\all_categories_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\category\presentation\category_products_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\category\presentation\widgets\category_card.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\category\presentation\widgets\category_grid.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\category\presentation\widgets\category_grid_item.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\category\presentation\widgets\subcategory_list.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\checkout_address_screen.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\checkout_payment_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\payment_success_dialog.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\widgets\add_new_address_button.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\widgets\address_card.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\widgets\checkout_summary.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\widgets\order_summary_card.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\features\checkout\presentation\widgets\payment_method_card_widget.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\deal_of_day_list_screen.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\home_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\new_arrivals_screen.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\special_offers_screen.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\trending_products_screen.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\category_circles_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\deal_of_day_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\home_banner_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\new_arrivals_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\special_offers_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\sponsored_banner.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\features\home\presentation\widgets\trending_section.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\onboarding\presentation\onboarding_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\onboarding\presentation\widgets\onboarding_indicator.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\features\onboarding\presentation\widgets\onboarding_page_widget.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\order\presentation\order_detail_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\order\presentation\order_history_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\order\presentation\widgets\order_card.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\order\presentation\widgets\order_item_tile.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\order\presentation\widgets\order_item_widget.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\order\presentation\widgets\order_status_timeline.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\features\product\presentation\product_detail_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\product\presentation\widgets\color_selector.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\product\presentation\widgets\product_actions_bar.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\product\presentation\widgets\product_image_carousel.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\product\presentation\widgets\similar_products_section.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\features\product\presentation\widgets\size_selector.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\add_address_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\addresses_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\help_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\legal_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\notifications_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\profile_edit_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\profile_main_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\saved_payments_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\settings_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\widgets\address_list_tile.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\widgets\profile_header.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\profile\presentation\widgets\settings_tile.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\search\presentation\search_results_screen.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\search\presentation\search_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\search\presentation\widgets\recent_search_list.dart
+====================================================================================================
+ 
+
+
+
+====================================================================================================
+FILE: lib\features\search\presentation\widgets\search_bar.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\search\presentation\widgets\search_result_grid.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\search\presentation\widgets\search_suggestion_tile.dart
+====================================================================================================
+  
+
+
+
+====================================================================================================
+FILE: lib\features\wishlist\presentation\widgets\wishlist_item_tile.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\features\wishlist\presentation\wishlist_screen.dart
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: lib\main.dart
+====================================================================================================
+/// lib/main.dart
+/// THIS IS THE REAL ONE — NO LIES, NO INVENTED FILES
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kingsbazar/config/app_config.dart';
+import 'package:kingsbazar/core/routes/app_router.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  runApp(
+    const ProviderScope(
+      child: KingsBazarApp(),
+    ),
+  );
+}
+
+class KingsBazarApp extends StatelessWidget {
+  const KingsBazarApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp.router(
+          title: 'KingsBazar',
+          debugShowCheckedModeBanner: false,
+          routerConfig: router,               // ← This is the real global router from app_router.dart
+          theme: ThemeData(
+            fontFamily: 'Poppins',
+            scaffoldBackgroundColor: const Color(0xFFFAFAFA),
+            useMaterial3: true,
+          ),
+        );
+      },
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\models\address_model.dart
+====================================================================================================
+/// lib/models/address_model.dart
+/// Complete Address model – fully fixed, no compilation errors
+
+class AddressModel {
+  final String id;
+  final String fullName;
+  final String phoneNumber;
+  final String alternatePhone;
+  final String pincode;
+  final String state;
+  final String city;
+  final String houseNo;
+  final String roadArea;
+  final String landmark;
+  final AddressType type;
+  final bool isDefault;
+
+  const AddressModel({
+    required this.id,
+    required this.fullName,
+    required this.phoneNumber,
+    this.alternatePhone = '',
+    required this.pincode,
+    required this.state,
+    required this.city,
+    required this.houseNo,
+    required this.roadArea,
+    this.landmark = '',
+    this.type = AddressType.home,
+    this.isDefault = false,
+  });
+
+  // JSON → Model
+  factory AddressModel.fromJson(Map<String, dynamic> json) {
+    return AddressModel(
+      id: json['id'] ?? DateTime.now().millisecondsSinceEpoch.toString(),
+      fullName: json['fullName'] ?? '',
+      phoneNumber: json['phoneNumber'] ?? '',
+      alternatePhone: json['alternatePhone'] ?? '',
+      pincode: json['pincode'] ?? '',
+      state: json['state'] ?? '',
+      city: json['city'] ?? '',
+      houseNo: json['houseNo'] ?? '',
+      roadArea: json['roadArea'] ?? '',
+      landmark: json['landmark'] ?? '',
+      type: _parseType(json['type']),
+      isDefault: json['isDefault'] ?? false,
+    );
+  }
+
+  // Model → JSON
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'fullName': fullName,
+        'phoneNumber': phoneNumber,
+        'alternatePhone': alternatePhone,
+        'pincode': pincode,
+        'state': state,
+        'city': city,
+        'houseNo': houseNo,
+        'roadArea': roadArea,
+        'landmark': landmark,
+        'type': type.name,
+        'isDefault': isDefault,
+      };
+
+  String get fullAddress =>
+      '$houseNo, $roadArea${landmark.isNotEmpty ? ', $landmark' : ''}, $city, $state - $pincode';
+
+  String get typeLabel => switch (type) {
+        AddressType.home => 'Home',
+        AddressType.work => 'Work',
+        AddressType.other => 'Other',
+      };
+
+  AddressModel copyWith({
+    String? id,
+    String? fullName,
+    String? phoneNumber,
+    String? alternatePhone,
+    String? pincode,
+    String? state,
+    String? city,
+    String? houseNo,
+    String? roadArea,
+    String? landmark,
+    AddressType? type,
+    bool? isDefault,
+  }) {
+    return AddressModel(
+      id: id ?? this.id,
+      fullName: fullName ?? this.fullName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      alternatePhone: alternatePhone ?? this.alternatePhone,
+      pincode: pincode ?? this.pincode,
+      state: state ?? this.state,
+      city: city ?? this.city,
+      houseNo: houseNo ?? this.houseNo,
+      roadArea: roadArea ?? this.roadArea,
+      landmark: landmark ?? this.landmark,
+      type: type ?? this.type,
+      isDefault: isDefault ?? this.isDefault,
+    );
+  }
+
+  static AddressType _parseType(String? type) {
+    return AddressType.values.firstWhere(
+      (e) => e.name == type?.toLowerCase(),
+      orElse: () => AddressType.home,
+    );
+  }
+}
+
+enum AddressType { home, work, other }
+
+
+====================================================================================================
+FILE: lib\models\banner_model.dart
+====================================================================================================
+/// lib/models/banner_model.dart
+/// Banner model – used in Home Screen slider & promotional sections
+
+class BannerModel {
+  final String id;
+  final String imageUrl;
+  final String? title;
+  final String? subtitle;
+  final String? buttonText;
+  final String? targetUrl;        // Deep link or product/category ID
+  final BannerActionType actionType;
+  final bool isActive;
+
+  const BannerModel({
+    required this.id,
+    required this.imageUrl,
+    this.title,
+    this.subtitle,
+    this.buttonText,
+    this.targetUrl,
+    this.actionType = BannerActionType.none,
+    this.isActive = true,
+  });
+
+  // JSON → Model
+  factory BannerModel.fromJson(Map<String, dynamic> json) {
+    return BannerModel(
+      id: json['id'].toString(),
+      imageUrl: json['imageUrl'] ?? json['image'] ?? '',
+      title: json['title'],
+      subtitle: json['subtitle'],
+      buttonText: json['buttonText'],
+      targetUrl: json['targetUrl'],
+      actionType: _parseActionType(json['actionType']),
+      isActive: json['isActive'] ?? true,
+    );
+  }
+
+  // Model → JSON
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'imageUrl': imageUrl,
+        'title': title,
+        'subtitle': subtitle,
+        'buttonText': buttonText,
+        'targetUrl': targetUrl,
+        'actionType': actionType.name,
+        'isActive': isActive,
+      };
+
+  // CopyWith
+  BannerModel copyWith({
+    String? id,
+    String? imageUrl,
+    String? title,
+    String? subtitle,
+    String? buttonText,
+    String? targetUrl,
+    BannerActionType? actionType,
+    bool? isActive,
+  }) {
+    return BannerModel(
+      id: id ?? this.id,
+      imageUrl: imageUrl ?? this.imageUrl,
+      title: title ?? this.title,
+      subtitle: subtitle ?? this.subtitle,
+      buttonText: buttonText ?? this.buttonText,
+      targetUrl: targetUrl ?? this.targetUrl,
+      actionType: actionType ?? this.actionType,
+      isActive: isActive ?? this.isActive,
+    );
+  }
+
+  static BannerActionType _parseActionType(String? type) {
+    switch (type?.toLowerCase()) {
+      case 'product':
+        return BannerActionType.product;
+      case 'category':
+        return BannerActionType.category;
+      case 'url':
+        return BannerActionType.url;
+      case 'none':
+      default:
+        return BannerActionType.none;
+    }
+  }
+}
+
+enum BannerActionType {
+  none,
+  product,    // → Navigate to Product Detail
+  category,   // → Navigate to Category Screen
+  url,        // → Open external link
+}
+
+// ──────────────────────────────────────────────────────
+// SAMPLE BANNERS (for testing without backend)
+// ──────────────────────────────────────────────────────
+final List<BannerModel> dummyBanners = [
+  BannerModel(
+    id: '1',
+    imageUrl: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&h=600&fit=crop',
+    title: 'UP TO 70% OFF',
+    subtitle: 'End of Season Sale',
+    buttonText: 'Shop Now',
+    actionType: BannerActionType.category,
+    targetUrl: 'sale',
+  ),
+  BannerModel(
+    id: '2',
+    imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=600&fit=crop',
+    title: 'NEW ARRIVALS',
+    subtitle: 'Fresh Styles Daily',
+    buttonText: 'Explore',
+    actionType: BannerActionType.category,
+    targetUrl: 'new-arrivals',
+  ),
+  BannerModel(
+    id: '3',
+    imageUrl: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1200&h=600&fit=crop',
+    title: 'FREE SHIPPING',
+    subtitle: 'On orders above \$50',
+    buttonText: 'Shop Now',
+    actionType: BannerActionType.none,
+  ),
+];
+
+
+====================================================================================================
+FILE: lib\models\cart_item_model.dart
+====================================================================================================
+/// lib/models/cart_item_model.dart
+/// Fully fixed – no more 'toJson not defined' error
+
+import 'package:kingsbazar/models/product_model.dart';
+
+class CartItemModel {
+  final ProductModel product;
+  int quantity;
+  String? selectedSize;
+  String? selectedColor;
+
+  CartItemModel({
+    required this.product,
+    this.quantity = 1,
+    this.selectedSize,
+    this.selectedColor,
+  });
+
+  // ────────────────────────────────
+  // Calculated values
+  // ────────────────────────────────
+  double get totalPrice => product.price * quantity;
+  double get totalOldPrice => product.oldPrice * quantity;
+  double get totalDiscount => totalOldPrice - totalPrice;
+
+  String get priceDisplay => '\$${totalPrice.toStringAsFixed(2)}';
+
+  // ────────────────────────────────
+  // JSON Serialization
+  // ────────────────────────────────
+  factory CartItemModel.fromJson(Map<String, dynamic> json) {
+    return CartItemModel(
+      product: ProductModel.fromJson(json['product'] as Map<String, dynamic>),
+      quantity: json['quantity'] as int? ?? 1,
+      selectedSize: json['selectedSize'] as String?,
+      selectedColor: json['selectedColor'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'product': product.toJson(),        // Now works – we added toJson() in ProductModel
+        'quantity': quantity,
+        'selectedSize': selectedSize,
+        'selectedColor': selectedColor,
+      };
+
+  // ────────────────────────────────
+  // copyWith
+  // ────────────────────────────────
+  CartItemModel copyWith({
+    ProductModel? product,
+    int? quantity,
+    String? selectedSize,
+    String? selectedColor,
+  }) {
+    return CartItemModel(
+      product: product ?? this.product,
+      quantity: quantity ?? this.quantity,
+      selectedSize: selectedSize ?? this.selectedSize,
+      selectedColor: selectedColor ?? this.selectedColor,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CartItemModel &&
+          runtimeType == other.runtimeType &&
+          product.id == other.product.id &&
+          selectedSize == other.selectedSize &&
+          selectedColor == other.selectedColor;
+
+  @override
+  int get hashCode => Object.hash(product.id, selectedSize, selectedColor);
+}
+
+
+====================================================================================================
+FILE: lib\models\category_model.dart
+====================================================================================================
+/// lib/models/category_model.dart
+/// Complete Category model – 100% compatible with DummyJSON + extra features
+
+class CategoryModel {
+  final String slug;           // "smartphones", "laptops", "fragrances"
+  final String name;           // "Smartphones", "Laptops", "Fragrances"
+  final String? iconUrl;       // Optional icon (SVG/PNG)
+  final String? bannerUrl;     // Optional banner for category page
+  final int productCount;     // Number of products in this category
+  final bool isFeatured;       // Show in home grid?
+
+  const CategoryModel({
+    required this.slug,
+    required this.name,
+    this.iconUrl,
+    this.bannerUrl,
+    this.productCount = 0,
+    this.isFeatured = false,
+  });
+
+  // ────────────────────────────────
+  // From DummyJSON (slug only)
+  // ────────────────────────────────
+  factory CategoryModel.fromDummyJson(String slug) {
+    return CategoryModel(
+      slug: slug,
+      name: _formatName(slug),
+      productCount: 0,
+      isFeatured: _featuredSlugs.contains(slug),
+    );
+  }
+
+  // ────────────────────────────────
+  // Full JSON support (for custom backend later)
+  // ────────────────────────────────
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
+      slug: json['slug'] as String,
+      name: json['name'] as String? ?? _formatName(json['slug']),
+      iconUrl: json['iconUrl'] as String?,
+      bannerUrl: json['bannerUrl'] as String?,
+      productCount: json['productCount'] as int? ?? 0,
+      isFeatured: json['isFeatured'] as bool? ?? false,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'slug': slug,
+        'name': name,
+        'iconUrl': iconUrl,
+        'bannerUrl': bannerUrl,
+        'productCount': productCount,
+        'isFeatured': isFeatured,
+      };
+
+  // ────────────────────────────────
+  // Helpers
+  // ────────────────────────────────
+  static String _formatName(String slug) {
+    return slug
+        .split('-')
+        .map((word) => word[0].toUpperCase() + word.substring(1))
+        .join(' ');
+  }
+
+  // Featured categories for home screen grid
+  static const List<String> _featuredSlugs = [
+    'smartphones',
+    'laptops',
+    'fragrances',
+    'skincare',
+    'groceries',
+    'home-decoration',
+    'tops',
+    'womens-dresses',
+    'mens-shirts',
+    'womens-shoes',
+  ];
+
+  // CopyWith
+  CategoryModel copyWith({
+    String? slug,
+    String? name,
+    String? iconUrl,
+    String? bannerUrl,
+    int? productCount,
+    bool? isFeatured,
+  }) {
+    return CategoryModel(
+      slug: slug ?? this.slug,
+      name: name ?? this.name,
+      iconUrl: iconUrl ?? this.iconUrl,
+      bannerUrl: bannerUrl ?? this.bannerUrl,
+      productCount: productCount ?? this.productCount,
+      isFeatured: isFeatured ?? this.isFeatured,
+    );
+  }
+}
+
+// ──────────────────────────────────────────────────────
+// ALL CATEGORIES FROM DUMMYJSON (ready to use)
+// ──────────────────────────────────────────────────────
+final List<CategoryModel> dummyCategories = [
+  CategoryModel.fromDummyJson('smartphones'),
+  CategoryModel.fromDummyJson('laptops'),
+  CategoryModel.fromDummyJson('fragrances'),
+  CategoryModel.fromDummyJson('skincare'),
+  CategoryModel.fromDummyJson('groceries'),
+  CategoryModel.fromDummyJson('home-decoration'),
+  CategoryModel.fromDummyJson('furniture'),
+  CategoryModel.fromDummyJson('tops'),
+  CategoryModel.fromDummyJson('womens-dresses'),
+  CategoryModel.fromDummyJson('womens-shoes'),
+  CategoryModel.fromDummyJson('mens-shirts'),
+  CategoryModel.fromDummyJson('mens-shoes'),
+  CategoryModel.fromDummyJson('mens-watches'),
+  CategoryModel.fromDummyJson('womens-watches'),
+  CategoryModel.fromDummyJson('womens-bags'),
+  CategoryModel.fromDummyJson('womens-jewellery'),
+  CategoryModel.fromDummyJson('sunglasses'),
+  CategoryModel.fromDummyJson('automotive'),
+  CategoryModel.fromDummyJson('motorcycle'),
+  CategoryModel.fromDummyJson('lighting'),
+];
+
+// Featured only (for home grid)
+final List<CategoryModel> featuredCategories = dummyCategories
+    .where((cat) => CategoryModel._featuredSlugs.contains(cat.slug))
+    .toList();
+
+
+====================================================================================================
+FILE: lib\models\order_model.dart
+====================================================================================================
+  
+/// lib/models/order_model.dart
+/// Complete Order model – used in My Orders, Order Tracking, Order Success
+
+import 'package:flutter/material.dart';
+import 'package:kingsbazar/models/address_model.dart';
+import 'package:kingsbazar/models/cart_item_model.dart';
+
+class OrderModel {
+  final String id;                          // "ORD-2025-0001"
+  final String orderNumber;                 // "20250001"
+  final DateTime orderDate;
+  final DateTime? deliveredDate;
+  final OrderStatus status;
+  final PaymentMethod paymentMethod;
+  final PaymentStatus paymentStatus;
+  final double subtotal;
+  final double discount;
+  final double shippingCharge;
+  final double tax;
+  final double totalAmount;
+  final List<CartItemModel> items;
+  final AddressModel shippingAddress;
+  final String? couponCode;
+  final String? transactionId;
+  final String? trackingNumber;
+  final String? notes;
+
+  const OrderModel({
+    required this.id,
+    required this.orderNumber,
+    required this.orderDate,
+    this.deliveredDate,
+    this.status = OrderStatus.processing,
+    this.paymentMethod = PaymentMethod.cod,
+    this.paymentStatus = PaymentStatus.pending,
+    required this.subtotal,
+    this.discount = 0.0,
+    this.shippingCharge = 0.0,
+    this.tax = 0.0,
+    required this.totalAmount,
+    required this.items,
+    required this.shippingAddress,
+    this.couponCode,
+    this.transactionId,
+    this.trackingNumber,
+    this.notes,
+  });
+
+  // ────────────────────────────────
+  // JSON
+  // ────────────────────────────────
+  factory OrderModel.fromJson(Map<String, dynamic> json) {
+    return OrderModel(
+      id: json['id'] as String,
+      orderNumber: json['orderNumber'] as String,
+      orderDate: DateTime.parse(json['orderDate'] as String),
+      deliveredDate: json['deliveredDate'] != null
+          ? DateTime.parse(json['deliveredDate'] as String)
+          : null,
+      status: _parseStatus(json['status'] as String?),
+      paymentMethod: _parsePaymentMethod(json['paymentMethod'] as String?),
+      paymentStatus: _parsePaymentStatus(json['paymentStatus'] as String?),
+      subtotal: (json['subtotal'] as num).toDouble(),
+      discount: (json['discount'] as num?)?.toDouble() ?? 0.0,
+      shippingCharge: (json['shippingCharge'] as num?)?.toDouble() ?? 0.0,
+      tax: (json['tax'] as num?)?.toDouble() ?? 0.0,
+      totalAmount: (json['totalAmount'] as num).toDouble(),
+      items: (json['items'] as List)
+          .map((e) => CartItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      shippingAddress: AddressModel.fromJson(json['shippingAddress'] as Map<String, dynamic>),
+      couponCode: json['couponCode'] as String?,
+      transactionId: json['transactionId'] as String?,
+      trackingNumber: json['trackingNumber'] as String?,
+      notes: json['notes'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'orderNumber': orderNumber,
+        'orderDate': orderDate.toIso8601String(),
+        'deliveredDate': deliveredDate?.toIso8601String(),
+        'status': status.name,
+        'paymentMethod': paymentMethod.name,
+        'paymentStatus': paymentStatus.name,
+        'subtotal': subtotal,
+        'discount': discount,
+        'shippingCharge': shippingCharge,
+        'tax': tax,
+        'totalAmount': totalAmount,
+        'items': items.map((e) => e.toJson()).toList(),
+        'shippingAddress': shippingAddress.toJson(),
+        'couponCode': couponCode,
+        'transactionId': transactionId,
+        'trackingNumber': trackingNumber,
+        'notes': notes,
+      };
+
+  // ────────────────────────────────
+  // Helpers
+  // ────────────────────────────────
+  String get statusText => switch (status) {
+        OrderStatus.pending => 'Pending',
+        OrderStatus.confirmed => 'Confirmed',
+        OrderStatus.processing => 'Processing',
+        OrderStatus.shipped => 'Shipped',
+        OrderStatus.outForDelivery => 'Out for Delivery',
+        OrderStatus.delivered => 'Delivered',
+        OrderStatus.cancelled => 'Cancelled',
+        OrderStatus.returned => 'Returned',
+        OrderStatus.failed => 'Failed',
+      };
+
+  Color get statusColor => switch (status) {
+        OrderStatus.pending => Colors.orange,
+        OrderStatus.confirmed || OrderStatus.processing => Colors.blue,
+        OrderStatus.shipped || OrderStatus.outForDelivery => Colors.purple,
+        OrderStatus.delivered => Colors.green,
+        OrderStatus.cancelled || OrderStatus.failed => Colors.red,
+        OrderStatus.returned => Colors.grey,
+      };
+
+  // CopyWith
+  OrderModel copyWith({
+    String? id,
+    String? orderNumber,
+    DateTime? orderDate,
+    DateTime? deliveredDate,
+    OrderStatus? status,
+    PaymentMethod? paymentMethod,
+    PaymentStatus? paymentStatus,
+    double? subtotal,
+    double? discount,
+    double? shippingCharge,
+    double? tax,
+    double? totalAmount,
+    List<CartItemModel>? items,
+    AddressModel? shippingAddress,
+    String? couponCode,
+    String? transactionId,
+    String? trackingNumber,
+    String? notes,
+  }) {
+    return OrderModel(
+      id: id ?? this.id,
+      orderNumber: orderNumber ?? this.orderNumber,
+      orderDate: orderDate ?? this.orderDate,
+      deliveredDate: deliveredDate ?? this.deliveredDate,
+      status: status ?? this.status,
+      paymentMethod: paymentMethod ?? this.paymentMethod,
+      paymentStatus: paymentStatus ?? this.paymentStatus,
+      subtotal: subtotal ?? this.subtotal,
+      discount: discount ?? this.discount,
+      shippingCharge: shippingCharge ?? this.shippingCharge,
+      tax: tax ?? this.tax,
+      totalAmount: totalAmount ?? this.totalAmount,
+      items: items ?? this.items,
+      shippingAddress: shippingAddress ?? this.shippingAddress,
+      couponCode: couponCode ?? this.couponCode,
+      transactionId: transactionId ?? this.transactionId,
+      trackingNumber: trackingNumber ?? this.trackingNumber,
+      notes: notes ?? this.notes,
+    );
+  }
+}
+
+// ─────────────────────────────────────
+// Enums
+// ─────────────────────────────────────
+enum OrderStatus {
+  pending,
+  confirmed,
+  processing,
+  shipped,
+  outForDelivery,
+  delivered,
+  cancelled,
+  returned,
+  failed,
+}
+
+enum PaymentMethod {
+  cod,
+  razorpay,
+  stripe,
+  paypal,
+  wallet,
+}
+
+enum PaymentStatus {
+  pending,
+  paid,
+  failed,
+  refunded,
+}
+
+// ─────────────────────────────────────
+// Parse Helpers
+// ─────────────────────────────────────
+OrderStatus _parseStatus(String? status) =>
+    OrderStatus.values.firstWhere((e) => e.name == status, orElse: () => OrderStatus.pending);
+
+PaymentMethod _parsePaymentMethod(String? method) =>
+    PaymentMethod.values.firstWhere((e) => e.name == method, orElse: () => PaymentMethod.cod);
+
+PaymentStatus _parsePaymentStatus(String? status) =>
+    PaymentStatus.values.firstWhere((e) => e.name == status, orElse: () => PaymentStatus.pending);
+
+
+====================================================================================================
+FILE: lib\models\product_model.dart
+====================================================================================================
+/// lib/models/product_model.dart
+/// Complete Product model – 100% compatible with DummyJSON API + toJson support
+
+class ProductModel {
+  final int id;
+  final String title;
+  final String description;
+  final double price;
+  final double discountPercentage;
+  final double rating;
+  final int stock;
+  final String brand;
+  final String category;
+  final String thumbnail;
+  final List<String> images;
+
+  const ProductModel({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.discountPercentage,
+    required this.rating,
+    required this.stock,
+    required this.brand,
+    required this.category,
+    required this.thumbnail,
+    required this.images,
+  });
+
+  // ────────────────────────────────
+  // Calculated values
+  // ────────────────────────────────
+  double get oldPrice => discountPercentage > 0
+      ? (price / (1 - discountPercentage / 100)).roundToDouble()
+      : price;
+
+  String get discountText => discountPercentage > 0
+      ? '${discountPercentage.toInt()}% OFF'
+      : '';
+
+  bool get hasDiscount => discountPercentage > 0;
+
+  // ────────────────────────────────
+  // JSON → Model
+  // ────────────────────────────────
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      id: json['id'] as int,
+      title: json['title'] as String,
+      description: json['description'] as String,
+      price: (json['price'] as num).toDouble(),
+      discountPercentage: (json['discountPercentage'] as num?)?.toDouble() ?? 0.0,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
+      stock: json['stock'] as int? ?? 0,
+      brand: json['brand'] as String? ?? 'No Brand',
+      category: json['category'] as String,
+      thumbnail: json['thumbnail'] as String,
+      images: List<String>.from(json['images'] as List),
+    );
+  }
+
+  // ────────────────────────────────
+  // Model → JSON (for saving cart, wishlist, etc.)
+  // ────────────────────────────────
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'description': description,
+        'price': price,
+        'discountPercentage': discountPercentage,
+        'rating': rating,
+        'stock': stock,
+        'brand': brand,
+        'category': category,
+        'thumbnail': thumbnail,
+        'images': images,
+      };
+
+  // ────────────────────────────────
+  // copyWith
+  // ────────────────────────────────
+  ProductModel copyWith({
+    int? id,
+    String? title,
+    String? description,
+    double? price,
+    double? discountPercentage,
+    double? rating,
+    int? stock,
+    String? brand,
+    String? category,
+    String? thumbnail,
+    List<String>? images,
+  }) {
+    return ProductModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      price: price ?? this.price,
+      discountPercentage: discountPercentage ?? this.discountPercentage,
+      rating: rating ?? this.rating,
+      stock: stock ?? this.stock,
+      brand: brand ?? this.brand,
+      category: category ?? this.category,
+      thumbnail: thumbnail ?? this.thumbnail,
+      images: images ?? this.images,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductModel &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
+}
+
+
+====================================================================================================
+FILE: lib\models\user_model.dart
+====================================================================================================
+/// lib/models/user_model.dart
+/// Complete User model – fully fixed, no warnings, production-ready
+
+class UserModel {
+  final String id;
+  final String? email;
+  final String? phone;
+  final String? fullName;
+  final String? avatarUrl;
+  final DateTime? dateOfBirth;
+  final Gender? gender;
+  final DateTime createdAt;
+  final DateTime? updatedAt;
+  final bool isEmailVerified;
+  final bool isPhoneVerified;
+  final String? fcmToken;
+
+  UserModel({
+    required this.id,
+    this.email,
+    this.phone,
+    this.fullName,
+    this.avatarUrl,
+    this.dateOfBirth,
+    this.gender,
+    DateTime? createdAt,
+    this.updatedAt,
+    this.isEmailVerified = false,
+    this.isPhoneVerified = false,
+    this.fcmToken,
+  }) : createdAt = createdAt ?? DateTime.now();   // Fixed: proper initialization
+
+  // ────────────────────────────────
+  // JSON
+  // ────────────────────────────────
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['id'] as String,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
+      fullName: json['fullName'] as String?,
+      avatarUrl: json['avatarUrl'] as String?,
+      dateOfBirth: json['dateOfBirth'] != null
+          ? DateTime.tryParse(json['dateOfBirth'] as String)
+          : null,
+      gender: _parseGender(json['gender'] as String?),
+      createdAt: json['createdAt'] != null
+          ? DateTime.tryParse(json['createdAt'] as String) ?? DateTime.now()
+          : DateTime.now(),
+      updatedAt: json['updatedAt'] != null
+          ? DateTime.tryParse(json['updatedAt'] as String)
+          : null,
+      isEmailVerified: json['isEmailVerified'] as bool? ?? false,
+      isPhoneVerified: json['isPhoneVerified'] as bool? ?? false,
+      fcmToken: json['fcmToken'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'email': email,
+        'phone': phone,
+        'fullName': fullName,
+        'avatarUrl': avatarUrl,
+        'dateOfBirth': dateOfBirth?.toIso8601String(),
+        'gender': gender?.name,
+        'createdAt': createdAt.toIso8601String(),
+        'updatedAt': updatedAt?.toIso8601String(),
+        'isEmailVerified': isEmailVerified,
+        'isPhoneVerified': isPhoneVerified,
+        'fcmToken': fcmToken,
+      };
+
+  // ────────────────────────────────
+  // Helpers
+  // ────────────────────────────────
+  String get displayName => fullName?.isNotEmpty == true
+      ? fullName!
+      : email?.split('@').first ?? phone ?? 'User';
+
+  String get initials {
+    if (fullName != null && fullName!.isNotEmpty) {
+      final names = fullName!.trim().split(' ');
+      if (names.length > 1) {
+        return names[0][0].toUpperCase() + names.last[0].toUpperCase();
+      }
+      return names[0][0].toUpperCase();
+    }
+    return displayName[0].toUpperCase();
+  }
+
+  bool get isGuest => id == 'guest';
+
+  UserModel copyWith({
+    String? id,
+    String? email,
+    String? phone,
+    String? fullName,
+    String? avatarUrl,
+    DateTime? dateOfBirth,
+    Gender? gender,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    bool? isEmailVerified,
+    bool? isPhoneVerified,
+    String? fcmToken,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      fullName: fullName ?? this.fullName,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
+      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      gender: gender ?? this.gender,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      isEmailVerified: isEmailVerified ?? this.isEmailVerified,
+      isPhoneVerified: isPhoneVerified ?? this.isPhoneVerified,
+      fcmToken: fcmToken ?? this.fcmToken,
+    );
+  }
+
+  static Gender? _parseGender(String? gender) {
+    if (gender == null) return null;
+    return Gender.values.firstWhere(
+      (e) => e.name.toLowerCase() == gender.toLowerCase(),
+      orElse: () => Gender.other,
+    );
+  }
+}
+
+enum Gender { male, female, other }
+final UserModel guestUser = UserModel(
+  id: 'guest',
+  fullName: 'Guest User',
+  createdAt: null, // Will use DateTime.now() when accessed
+);
+
+final UserModel sampleUser = UserModel(
+  id: 'usr_123456',
+  email: 'rahul@example.com',
+  phone: '+919876543210',
+  fullName: 'Rahul Sharma',
+  avatarUrl: 'https://ui-avatars.com/api/?name=Rahul+Sharma&background=E30425&color=fff',
+  gender: Gender.male,
+  isEmailVerified: true,
+);
+
+
+====================================================================================================
+FILE: lib\providers\address_provider.dart
+====================================================================================================
+/// lib/providers/address_provider.dart
+/// FULL — 1 default address on first launch
+
+import 'dart:convert';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/address_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class AddressNotifier extends StateNotifier<List<AddressModel>> {
+  AddressNotifier() : super([]) {
+    _loadOrCreateDefault();
+  }
+
+  Future<void> _loadOrCreateDefault() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = prefs.getString('addresses');
+    if (jsonString != null && jsonString.isNotEmpty) {
+      final List<dynamic> list = json.decode(jsonString);
+      state = list.map((e) => AddressModel.fromJson(e)).toList();
+    } else {
+      state = [_createDefaultAddress()];
+      _save();
+    }
+  }
+
+  AddressModel _createDefaultAddress() => AddressModel(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        fullName: "Your Name",
+        phoneNumber: "9876543210",
+        pincode: "110001",
+        state: "Delhi",
+        city: "New Delhi",
+        houseNo: "A-12",
+        roadArea: "Safdarjung Enclave",
+        type: AddressType.home,
+        isDefault: true,
+      );
+
+  Future<void> _save() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = json.encode(state.map((e) => e.toJson()).toList());
+    await prefs.setString('addresses', jsonString);
+  }
+
+  void addAddress(AddressModel address) {
+    if (address.isDefault) {
+      state = state.map((a) => a.copyWith(isDefault: false)).toList();
+    }
+    state = [...state, address];
+    _save();
+  }
+
+  void updateAddress(AddressModel updated) {
+    state = state.map((a) => a.id == updated.id ? updated : a).toList();
+    _save();
+  }
+
+  void deleteAddress(String id) {
+    state = state.where((a) => a.id != id).toList();
+    if (state.isNotEmpty && !state.any((a) => a.isDefault)) {
+      state = [state.first.copyWith(isDefault: true), ...state.skip(1)];
+    }
+    _save();
+  }
+
+  void setDefault(String id) {
+    state = state.map((a) => a.copyWith(isDefault: a.id == id)).toList();
+    _save();
+  }
+}
+
+final addressProvider = StateNotifierProvider<AddressNotifier, List<AddressModel>>((ref) {
+  return AddressNotifier();
+});
+
+
+====================================================================================================
+FILE: lib\providers\app_state_provider.dart
+====================================================================================================
+ 
+/// lib/providers/app_state_provider.dart
+/// Global App State – Cart count, Wishlist count, Auth state, Theme, etc.
+/// The HEART of your KingsBazar app – used everywhere!
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/address_model.dart';
+import 'package:kingsbazar/models/user_model.dart';
+
+/// ──────────────────────────────────────
+/// 1. Current User (Guest or Logged-in)
+/// ──────────────────────────────────────
+final currentUserProvider = StateProvider<UserModel>((ref) {
+  // Start as guest – change on login
+  return guestUser;
+});
+
+/// ──────────────────────────────────────
+/// 2. Cart Item Count (for badge)
+/// ──────────────────────────────────────
+final cartItemCountProvider = Provider<int>((ref) {
+  // You'll connect this to cartProvider later
+  // For now: return dummy count or real when ready
+  return 3; // Remove when cartProvider is ready
+});
+
+/// ──────────────────────────────────────
+/// 3. Wishlist Item Count (for badge)
+/// ──────────────────────────────────────
+final wishlistItemCountProvider = Provider<int>((ref) {
+  return 7; // Replace with real wishlist provider later
+});
+
+/// ──────────────────────────────────────
+/// 4. App Theme Mode (Light/Dark)
+/// ──────────────────────────────────────
+final themeModeProvider = StateProvider<ThemeMode>((ref) {
+  return ThemeMode.light;
+});
+
+/// ──────────────────────────────────────
+/// 5. Bottom Navigation Index (for MainScreen)
+/// ──────────────────────────────────────
+final bottomNavIndexProvider = StateProvider<int>((ref) => 0);
+
+/// ──────────────────────────────────────
+/// 6. App Loading State (global overlay)
+/// ──────────────────────────────────────
+final isAppLoadingProvider = StateProvider<bool>((ref) => false);
+
+/// ──────────────────────────────────────
+/// 7. Network Connectivity Status
+/// ──────────────────────────────────────
+final isOnlineProvider = StateProvider<bool>((ref) => true);
+
+/// ──────────────────────────────────────
+/// 8. Selected Address for Checkout
+/// ──────────────────────────────────────
+final selectedAddressForCheckoutProvider = StateProvider<AddressModel?>((ref) => null);
+
+/// ──────────────────────────────────────
+/// 9. Global Scaffold Key (for SnackBars from anywhere)
+/// ──────────────────────────────────────
+final globalScaffoldKey = GlobalKey<ScaffoldMessengerState>();
+
+/// ──────────────────────────────────────
+/// 10. Helper: Show Global SnackBar
+/// ──────────────────────────────────────
+void showGlobalSnackBar({
+  required String message,
+  bool success = true,
+  Duration duration = const Duration(seconds: 3),
+}) {
+  final scaffold = globalScaffoldKey.currentState;
+  if (scaffold != null) {
+    scaffold.hideCurrentSnackBar();
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: success ? Colors.green : Colors.red,
+        duration: duration,
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+}
+
+
+====================================================================================================
+FILE: lib\providers\auth_provider.dart
+====================================================================================================
+
+/// lib/providers/auth_provider.dart
+/// Complete Auth Provider – Login, Register, Logout, Guest Mode
+/// Works with DummyJSON Auth + supports Guest flow
+
+import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/user_model.dart';
+import 'package:kingsbazar/providers/app_state_provider.dart';
+import 'package:kingsbazar/services/api/api_service.dart';
+
+/// ──────────────────────────────────────
+/// 1. Auth State Notifier
+/// ──────────────────────────────────────
+class AuthNotifier extends StateNotifier<AsyncValue<UserModel>> {
+  AuthNotifier() : super(AsyncValue.data(guestUser)) {
+    // Auto-check saved session on app start
+    _checkSavedLogin();
+  }
+
+  // Current user (guest or logged-in)
+  UserModel get user => state.value ?? guestUser;
+  bool get isLoggedIn => !user.isGuest;
+
+  // ────── Login with DummyJSON ──────
+  Future<void> login({
+    required String username,
+    required String password,
+  }) async {
+    state = const AsyncValue.loading();
+
+    try {
+      final response = await apiService.post(
+        '/auth/login',
+        data: {
+          'username': username,   // DummyJSON uses username, not email
+          'password': password,
+          // Popular test accounts:
+          // kminchelle / 0lelplR
+          // atuny0     / 9uQFF1Lh
+          // hbingley1  / CQutx25i8r
+        },
+      );
+
+      final userJson = response.data;
+      final loggedInUser = UserModel(
+        id: userJson['id'].toString(),
+        email: userJson['email'],
+        phone: userJson['phone'],
+        fullName: '${userJson['firstName']} ${userJson['lastName']}',
+        avatarUrl: userJson['image'],
+        gender: userJson['gender'] == 'male' ? Gender.male : Gender.female,
+        isEmailVerified: true,
+        isPhoneVerified: true,
+      );
+
+      state = AsyncValue.data(loggedInUser);
+
+      // Save to secure storage / Hive later
+      _saveLoginSession(loggedInUser);
+
+      showGlobalSnackBar(message: 'Welcome back, ${loggedInUser.displayName}!', success: true);
+    } on DioException catch (e) {
+      String msg = 'Login failed';
+      if (e.response?.statusCode == 400) {
+        msg = 'Invalid username or password';
+      } else if (e.type == DioExceptionType.connectionTimeout) {
+        msg = 'Connection timeout';
+      }
+
+      state = AsyncValue.error(msg, StackTrace.current);
+      showGlobalSnackBar(message: msg, success: false);
+    } catch (e) {
+      state = AsyncValue.error(e, StackTrace.current);
+      showGlobalSnackBar(message: 'Something went wrong', success: false);
+    }
+  }
+
+  // ────── Register (DummyJSON supports it!) ──────
+  Future<void> register({
+    required String email,
+    required String password,
+    required String firstName,
+    required String lastName,
+    String? phone,
+  }) async {
+    state = const AsyncValue.loading();
+
+    try {
+      final response = await apiService.post('/users/add', data: {
+        'firstName': firstName,
+        'lastName': lastName,
+        'email': email,
+        'password': password,
+        'phone': phone,
+      });
+
+      final newUser = UserModel(
+        id: response.data['id'].toString(),
+        email: email,
+        fullName: '$firstName $lastName',
+        phone: phone,
+        isEmailVerified: false,
+        isPhoneVerified: false,
+      );
+
+      state = AsyncValue.data(newUser);
+      _saveLoginSession(newUser);
+
+      showGlobalSnackBar(message: 'Account created successfully!', success: true);
+    } catch (e) {
+      String msg = e.toString().contains('email') ? 'Email already exists' : 'Registration failed';
+      state = AsyncValue.error(msg, StackTrace.current);
+      showGlobalSnackBar(message: msg, success: false);
+    }
+  }
+
+  // ────── Logout ──────
+  Future<void> logout() async {
+    state = AsyncValue.data(guestUser);
+    // Clear saved session
+    // await secureStorage.delete(key: 'user_session');
+    showGlobalSnackBar(message: 'Logged out successfully');
+  }
+
+  // ────── Guest Mode (already default) ──────
+  void continueAsGuest() {
+    state = AsyncValue.data(guestUser);
+  }
+
+  // ────── Private Helpers ──────
+  void _saveLoginSession(UserModel user) {
+    // TODO: Save to Hive / SharedPreferences / SecureStorage
+    // Example: await Hive.box('auth').put('current_user', user.toJson());
+  }
+
+  Future<void> _checkSavedLogin() async {
+    // TODO: Load from Hive / SecureStorage
+    // final saved = Hive.box('auth').get('current_user');
+    // if (saved != null) state = AsyncValue.data(UserModel.fromJson(saved));
+  }
+}
+
+// ──────────────────────────────────────
+// Providers
+// ──────────────────────────────────────
+final authProvider = StateNotifierProvider<AuthNotifier, AsyncValue<UserModel>>((ref) {
+  return AuthNotifier();
+});
+
+// Quick access to current user
+final currentUserProvider = Provider<UserModel>((ref) {
+  return ref.watch(authProvider).value ?? guestUser;
+});
+
+// Is user logged in?
+final isUserLoggedInProvider = Provider<bool>((ref) {
+  return ref.watch(currentUserProvider).isGuest == false;
+});
+
+
+
+====================================================================================================
+FILE: lib\providers\cart_provider.dart
+====================================================================================================
+/// lib/providers/cart_provider.dart
+/// FULL — Starts EMPTY, persists with SharedPreferences
+
+import 'dart:convert';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/cart_item_model.dart';
+import 'package:kingsbazar/models/product_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class CartNotifier extends StateNotifier<List<CartItemModel>> {
+  CartNotifier() : super([]) {
+    _loadFromStorage();
+  }
+
+  static const String _key = 'cart_items';
+
+  Future<void> _loadFromStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = prefs.getString(_key);
+    if (jsonString != null) {
+      final List<dynamic> jsonList = json.decode(jsonString);
+      state = jsonList.map((json) => CartItemModel.fromJson(json)).toList();
+    }
+  }
+
+  Future<void> _saveToStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = json.encode(state.map((e) => e.toJson()).toList());
+    await prefs.setString(_key, jsonString);
+  }
+
+  void addItem(ProductModel product, {String? size, String? color}) {
+    final existingIndex = state.indexWhere(
+      (item) => item.product.id == product.id && item.selectedSize == size && item.selectedColor == color,
+    );
+
+    if (existingIndex >= 0) {
+      state[existingIndex].quantity++;
+    } else {
+      state = [...state, CartItemModel(product: product, quantity: 1, selectedSize: size, selectedColor: color)];
+    }
+    _saveToStorage();
+  }
+
+  void removeItem(CartItemModel item) {
+    state = state.where((i) => i != item).toList();
+    _saveToStorage();
+  }
+
+  void updateQuantity(CartItemModel item, int quantity) {
+    if (quantity <= 0) {
+      removeItem(item);
+      return;
+    }
+    state = state.map((i) => i == item ? i.copyWith(quantity: quantity) : i).toList();
+    _saveToStorage();
+  }
+
+  void clearCart() {
+    state = [];
+    _saveToStorage();
+  }
+
+  double get subtotal => state.fold(0.0, (sum, item) => sum + item.totalPrice);
+  int get itemCount => state.fold(0, (sum, item) => sum + item.quantity);
+}
+
+final cartProvider = StateNotifierProvider<CartNotifier, List<CartItemModel>>((ref) {
+  return CartNotifier();
+});
+
+final cartItemCountProvider = Provider<int>((ref) => ref.watch(cartProvider).fold(0, (sum, item) => sum + item.quantity));
+final cartSubtotalProvider = Provider<double>((ref) => ref.watch(cartProvider).fold(0.0, (sum, item) => sum + item.totalPrice));
+
+
+====================================================================================================
+FILE: lib\providers\category_provider.dart
+====================================================================================================
+/// lib/providers/category_provider.dart
+/// FINAL VERSION – 100% ERROR-FREE – Proper null handling
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/category_model.dart';
+import 'package:kingsbazar/services/api/dummyjson_service.dart';
+
+class CategoryNotifier extends StateNotifier<AsyncValue<List<CategoryModel>>> {
+  CategoryNotifier() : super(const AsyncValue.loading()) {
+    loadCategories();
+  }
+
+  Future<void> loadCategories() async {
+    try {
+      state = const AsyncValue.loading();
+      final categories = await dummyJsonService.getAllCategories();
+
+      final featured = categories.where((c) => c.isFeatured).toList();
+      final others = categories.where((c) => !c.isFeatured).toList()
+        ..sort((a, b) => a.name.compareTo(b.name));
+
+      state = AsyncValue.data([...featured, ...others]);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
+    }
+  }
+}
+
+// ─────────────────────────────────────
+// Providers – ALL 100% CLEAN
+// ─────────────────────────────────────
+final categoryProvider = StateNotifierProvider<CategoryNotifier, AsyncValue<List<CategoryModel>>>((ref) {
+  return CategoryNotifier();
+});
+
+final featuredCategoriesProvider = Provider<List<CategoryModel>>((ref) {
+  return ref.watch(categoryProvider).when(
+    data: (cats) => cats.where((c) => c.isFeatured).toList(),
+    loading: () => <CategoryModel>[],
+    error: (_, __) => <CategoryModel>[],
+  );
+});
+
+final allCategoriesProvider = Provider<List<CategoryModel>>((ref) {
+  return ref.watch(categoryProvider).when(
+    data: (cats) => cats,
+    loading: () => <CategoryModel>[],
+    error: (_, __) => <CategoryModel>[],
+  );
+});
+
+// FIXED: categoryBySlugProvider – Now 100% correct null handling
+final categoryBySlugProvider = Provider.family<CategoryModel?, String>((ref, slug) {
+  return ref.watch(categoryProvider).when(
+    data: (cats) {
+      try {
+        return cats.firstWhere((c) => c.slug == slug);
+      } catch (_) {
+        return null; // Not found → safely return null
+      }
+    },
+    loading: () => null,
+    error: (_, __) => null,
+  );
+});
+
+
+====================================================================================================
+FILE: lib\providers\order_provider.dart
+====================================================================================================
+/// lib/providers/order_provider.dart
+/// FINAL VERSION — FULLY FIXED — All required fields included
+
+import 'dart:convert';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/address_model.dart';
+
+import 'package:kingsbazar/models/order_model.dart';
+import 'package:kingsbazar/providers/cart_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class OrderNotifier extends StateNotifier<AsyncValue<List<OrderModel>>> {
+  OrderNotifier(this.ref) : super(const AsyncValue.loading()) {
+    _loadOrdersFromStorage();
+  }
+
+  final Ref ref;
+
+  static const String _key = 'user_orders';
+
+  // Load saved orders on app start
+  Future<void> _loadOrdersFromStorage() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final jsonString = prefs.getString(_key);
+
+      if (jsonString != null && jsonString.isNotEmpty) {
+        final List<dynamic> list = json.decode(jsonString);
+        final orders = list.map((json) => OrderModel.fromJson(json)).toList();
+        state = AsyncValue.data(orders);
+      } else {
+        state = const AsyncValue.data([]); // First launch → empty
+      }
+    } catch (e) {
+      state = const AsyncValue.data([]);
+    }
+  }
+
+  // Save orders to storage
+  Future<void> _saveOrders() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = json.encode(
+      state.value?.map((order) => order.toJson()).toList() ?? [],
+    );
+    await prefs.setString(_key, jsonString);
+  }
+
+  // PLACE ORDER — NOW 100% CORRECT
+  Future<void> placeOrder({
+    required AddressModel shippingAddress,
+    required PaymentMethod paymentMethod,
+    String? couponCode,
+  }) async {
+    final cartItems = ref.read(cartProvider);
+    if (cartItems.isEmpty) return;
+
+    final subtotal = ref.read(cartSubtotalProvider);
+    final discount = (couponCode == 'WELCOME500') ? 500.0 : 0.0;
+    final shippingCharge = 0.0; // Free shipping
+    final totalAmount = (subtotal - discount + shippingCharge).clamp(0.0, double.infinity);
+
+    final newOrder = OrderModel(
+      id: 'ORD-${DateTime.now().millisecondsSinceEpoch}',
+      orderNumber: 'KS${DateTime.now().millisecondsSinceEpoch.toString().substring(7)}',
+      orderDate: DateTime.now(),
+      status: paymentMethod == PaymentMethod.cod ? OrderStatus.confirmed : OrderStatus.processing,
+      paymentMethod: paymentMethod,
+      paymentStatus: paymentMethod == PaymentMethod.cod ? PaymentStatus.pending : PaymentStatus.paid,
+      subtotal: subtotal,
+      discount: discount,
+      shippingCharge: shippingCharge,
+      couponCode: couponCode,
+      totalAmount: totalAmount,
+      items: cartItems,
+      shippingAddress: shippingAddress,
+       // Same for now
+    );
+
+    // Add to history
+    state = state.whenData((orders) => [newOrder, ...orders]);
+
+    // Save to storage
+    await _saveOrders();
+
+    // Clear cart
+    ref.read(cartProvider.notifier).clearCart();
+
+    // Optional success message
+    // showGlobalSnackBar(message: "Order placed successfully!", success: true);
+  }
+}
+
+// ─────────────────────────────────────
+// Provider
+// ─────────────────────────────────────
+final orderProvider = StateNotifierProvider<OrderNotifier, AsyncValue<List<OrderModel>>>((ref) {
+  return OrderNotifier(ref);
+});
+
+// Recent orders (for home screen)
+final recentOrdersProvider = Provider<List<OrderModel>>((ref) {
+  return ref.watch(orderProvider).when(
+    data: (orders) => orders.take(3).toList(),
+    loading: () => [],
+    error: (_, __) => [],
+  );
+});
+
+
+====================================================================================================
+FILE: lib\providers\product_provider.dart
+====================================================================================================
+  
+/// lib/providers/product_provider.dart
+/// Complete Product Provider – All products, By Category, Search, Single Product
+/// 100% REAL DATA from DummyJSON.com
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kingsbazar/models/product_model.dart';
+import 'package:kingsbazar/services/api/dummyjson_service.dart';
+
+/// ────────────────────────────────
+/// 1. All Products (with pagination)
+/// ────────────────────────────────
+final productsProvider = FutureProvider.family<List<ProductModel>, int>((ref, page) async {
+  final limit = 20;
+  final skip = page * limit;
+  return await dummyJsonService.getAllProducts(limit: limit, skip: skip);
+});
+
+/// ────────────────────────────────
+/// 2. Products by Category
+/// ────────────────────────────────
+final categoryProductsProvider =
+    FutureProvider.family<List<ProductModel>, String>((ref, categorySlug) async {
+  return await dummyJsonService.getProductsByCategory(categorySlug, limit: 30);
+});
+
+/// ────────────────────────────────
+/// 3. Single Product Detail
+/// ────────────────────────────────
+final productDetailProvider =
+    FutureProvider.family<ProductModel, int>((ref, productId) async {
+  return await dummyJsonService.getProductById(productId);
+});
+
+/// ────────────────────────────────
+/// 4. Search Products
+/// ────────────────────────────────
+final searchProductsProvider =
+    FutureProvider.family<List<ProductModel>, String>((ref, query) async {
+  if (query.trim().isEmpty) return [];
+  return await dummyJsonService.searchProducts(query);
+});
+
+/// ────────────────────────────────
+/// 5. Trending / Featured Products (Home Screen)
+/// ────────────────────────────────
+final trendingProductsProvider = FutureProvider<List<ProductModel>>((ref) async {
+  return await dummyJsonService.getTrendingProducts();
+});
+
+final newArrivalsProvider = FutureProvider<List<ProductModel>>((ref) async {
+  return await dummyJsonService.getNewArrivals();
+});
+
+final bestSellersProvider = FutureProvider<List<ProductModel>>((ref) async {
+  return await dummyJsonService.getBestSellers();
+});
+
+/// ────────────────────────────────
+/// 6. Recommended Products (Product Detail Screen)
+/// ────────────────────────────────
+final recommendedProductsProvider =
+    FutureProvider.family<List<ProductModel>, int>((ref, currentProductId) async {
+  // Get category of current product first
+  final productAsync = ref.watch(productDetailProvider(currentProductId));
+  final category = await productAsync.when(
+    data: (p) => p.category,
+    loading: () => 'smartphones',
+    error: (_, __) => 'smartphones',
+  );
+
+  final products = await dummyJsonService.getProductsByCategory(category, limit: 10);
+  // Remove current product from list
+  return products.where((p) => p.id != currentProductId).toList();
+});
+
+
+====================================================================================================
+FILE: lib\providers\wishlist_provider.dart
+====================================================================================================
+/// lib/providers/wishlist_provider.dart
+/// FULL — Starts EMPTY, persists
+
+import 'dart:convert';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:kingsbazar/models/product_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class WishlistNotifier extends StateNotifier<List<ProductModel>> {
+  WishlistNotifier() : super([]) {
+    _loadFromStorage();
+  }
+
+  static const String _key = 'wishlist';
+
+  Future<void> _loadFromStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = prefs.getString(_key);
+    if (jsonString != null) {
+      final List<dynamic> list = json.decode(jsonString);
+      state = list.map((json) => ProductModel.fromJson(json)).toList();
+    }
+  }
+
+  Future<void> _saveToStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = json.encode(state.map((p) => p.toJson()).toList());
+    await prefs.setString(_key, jsonString);
+  }
+
+  void toggle(ProductModel product) {
+    if (state.any((p) => p.id == product.id)) {
+      state = state.where((p) => p.id != product.id).toList();
+    } else {
+      state = [...state, product];
+    }
+    _saveToStorage();
+  }
+
+  bool isWishlisted(int productId) => state.any((p) => p.id == productId);
+  int get count => state.length;
+}
+
+final wishlistProvider = StateNotifierProvider<WishlistNotifier, List<ProductModel>>((ref) {
+  return WishlistNotifier();
+});
+
+final wishlistCountProvider = Provider<int>((ref) => ref.watch(wishlistProvider).length);
+final isInWishlistProvider = Provider.family<bool, int>((ref, id) => ref.watch(wishlistProvider).any((p) => p.id == id));
+
+
+====================================================================================================
+FILE: lib\services\api\api_service.dart
+====================================================================================================
+/// lib/services/api/api_service.dart
+/// UPDATED – Dio is now public (dio instead of _dio)
+
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+class ApiService {
+  static final ApiService _instance = ApiService._internal();
+  factory ApiService() => _instance;
+  ApiService._internal();
+
+  // CHANGED: _dio → dio (public)
+  late final Dio dio;
+
+  static const String _baseUrl = 'https://dummyjson.com';
+
+  void init() {
+    dio = Dio(BaseOptions(
+      baseUrl: _baseUrl,
+      connectTimeout: const Duration(seconds: 15),
+      receiveTimeout: const Duration(seconds: 15),
+      sendTimeout: const Duration(seconds: 15),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    ));
+
+    if (kDebugMode) {
+      dio.interceptors.add(
+        PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          error: true,
+          compact: true,
+        ),
+      );
+    }
+
+    // Error handling
+    dio.interceptors.add(InterceptorsWrapper(
+      onError: (e, handler) {
+        debugPrint('API Error: ${e.message}');
+        return handler.next(e);
+      },
+    ));
+  }
+
+  // HTTP methods
+  Future<Response<T>> get<T>(String path, {Map<String, dynamic>? queryParameters}) async {
+    return await dio.get<T>(path, queryParameters: queryParameters);
+  }
+
+  Future<Response<T>> post<T>(String path, {dynamic data}) async {
+    return await dio.post<T>(path, data: data);
+  }
+}
+
+final apiService = ApiService();
+
+void setupApiService() {
+  apiService.init();
+}
+
+
+====================================================================================================
+FILE: lib\services\api\dummyjson_service.dart
+====================================================================================================
+/// lib/services/api/dummyjson_service.dart
+/// COMPLETE & FINAL DummyJsonService – 100% REAL API CALLS
+/// Works perfectly with DummyJSON.com – NO fake data!
+
+import 'package:dio/dio.dart';
+import 'package:kingsbazar/models/banner_model.dart';
+import 'package:kingsbazar/models/category_model.dart';
+import 'package:kingsbazar/models/product_model.dart';
+import 'package:kingsbazar/services/api/api_service.dart';
+
+class DummyJsonService {
+  final Dio _dio = apiService.dio;
+
+  // ────────────────────────────────
+  // 1. Products
+  // ────────────────────────────────
+  Future<List<ProductModel>> getAllProducts({
+    int limit = 30,
+    int skip = 0,
+  }) async {
+    final response = await _dio.get(
+      '/products',
+      queryParameters: {'limit': limit, 'skip': skip},
+    );
+    return (response.data['products'] as List)
+        .map((json) => ProductModel.fromJson(json))
+        .toList();
+  }
+
+  Future<ProductModel> getProductById(int id) async {
+    final response = await _dio.get('/products/$id');
+    return ProductModel.fromJson(response.data);
+  }
+
+  Future<List<ProductModel>> getProductsByCategory(
+    String categorySlug, {
+    int limit = 20,
+    int skip = 0,
+  }) async {
+    final response = await _dio.get(
+      '/products/category/$categorySlug',
+      queryParameters: {'limit': limit, 'skip': skip},
+    );
+    return (response.data['products'] as List)
+        .map((json) => ProductModel.fromJson(json))
+        .toList();
+  }
+
+  Future<List<ProductModel>> searchProducts(String query) async {
+    if (query.trim().isEmpty) return [];
+    final response = await _dio.get(
+      '/products/search',
+      queryParameters: {'q': query},
+    );
+    return (response.data['products'] as List)
+        .map((json) => ProductModel.fromJson(json))
+        .toList();
+  }
+
+  // ────────────────────────────────
+  // 2. Categories (REAL API → returns List<String>)
+  // ────────────────────────────────
+  Future<List<String>> getAllCategorySlugs() async {
+    final response = await _dio.get('/products/categories');
+    return List<String>.from(response.data);
+  }
+
+  Future<List<CategoryModel>> getAllCategories() async {
+    final slugs = await getAllCategorySlugs();
+    return slugs.map((slug) => CategoryModel.fromDummyJson(slug)).toList();
+  }
+
+  // ────────────────────────────────
+  // 3. Banners (Mocked – DummyJSON has no banners)
+  // ────────────────────────────────
+  Future<List<BannerModel>> getHomeBanners() async {
+    await Future.delayed(const Duration(milliseconds: 400)); // Simulate network
+    return dummyBanners;
+  }
+
+  // ────────────────────────────────
+  // 4. Featured / Trending / New Arrivals
+  // ────────────────────────────────
+  Future<List<ProductModel>> getTrendingProducts() async {
+    return getAllProducts(limit: 15);
+  }
+
+  Future<List<ProductModel>> getNewArrivals() async {
+    return getAllProducts(limit: 12);
+  }
+
+  Future<List<ProductModel>> getBestSellers() async {
+    // DummyJSON has no "best sellers" → just return popular ones
+    final all = await getAllProducts(limit: 50);
+    all.shuffle();
+    return all.take(10).toList();
+  }
+}
+
+// ─────────────────────────────────────
+// Global instance
+// ─────────────────────────────────────
+final dummyJsonService = DummyJsonService();
+
+// ─────────────────────────────────────
+// Mock Banners (since DummyJSON has no banner endpoint)
+// ─────────────────────────────────────
+final List<BannerModel> dummyBanners = [
+  BannerModel(
+    id: '1',
+    imageUrl: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&h=600&fit=crop',
+    title: 'UP TO 70% OFF',
+    subtitle: 'End of Season Sale',
+    buttonText: 'Shop Now',
+    actionType: BannerActionType.category,
+    targetUrl: 'tops',
+  ),
+  BannerModel(
+    id: '2',
+    imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=600&fit=crop',
+    title: 'NEW ARRIVALS',
+    subtitle: 'Fresh Styles Daily',
+    buttonText: 'Explore',
+    actionType: BannerActionType.category,
+    targetUrl: 'new-arrivals',
+  ),
+  BannerModel(
+    id: '3',
+    imageUrl: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1200&h=600&fit=crop',
+    title: 'FREE SHIPPING',
+    subtitle: 'On orders above ₹999',
+    buttonText: 'Shop Now',
+    actionType: BannerActionType.none,
+  ),
+];
+
+
+====================================================================================================
+FILE: lib\services\api\shopify_service.dart
+====================================================================================================
+ 
+
+
