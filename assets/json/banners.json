@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=200&fit=crop",
+    "title": "50% Off Everything!",
+    "subtitle": "Shop Now"
+  },
+  {
+    "id": 2,
+    "image": "https://images.pexels.com/photos/1047330/pexels-photo-1047330.jpeg?w=400&h=200&fit=crop",
+    "title": "New Season Arrival",
+    "subtitle": "Explore Latest Trends"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=200&fit=crop",
+    "title": "Flash Sale on Fashion",
+    "subtitle": "Up to 70% Off"
+  }
+]
