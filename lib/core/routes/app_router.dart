@@ -4,12 +4,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kingsbazar/core/routes/app_routes.dart';
+import 'package:kingsbazar/features/checkout/presentation/checkout_payment_screen.dart';
 
 // Screens (will be created later)
 import 'package:kingsbazar/features/home/presentation/home_screen.dart';
+import 'package:kingsbazar/features/product/presentation/product_detail_screen.dart';
 import 'package:kingsbazar/features/search/presentation/search_screen.dart';
 import 'package:kingsbazar/features/wishlist/presentation/wishlist_screen.dart';
 import 'package:kingsbazar/features/cart/presentation/cart_screen.dart';
+import 'package:kingsbazar/models/product_model.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: AppRoutes.home,
