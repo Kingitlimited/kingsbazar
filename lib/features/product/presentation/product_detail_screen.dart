@@ -53,9 +53,9 @@ class ProductDetailScreen extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 16),
-                  if (product.description != null && product.description!.isNotEmpty)
+                  if (product.description.isNotEmpty)
                     Text(
-                      product.description!,
+                      product.description,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                 ],

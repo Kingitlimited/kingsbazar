@@ -1,6 +1,8 @@
 /// lib/core/widgets/components/deal_of_day_card.dart
 /// PREMIUM "Deal of the Day" Card – Red banner, countdown timer, gold star, your exact design
 
+// ignore_for_file: unused_local_variable
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

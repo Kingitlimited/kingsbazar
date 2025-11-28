@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kingsbazar/config/app_config.dart';
+
 import 'package:kingsbazar/core/routes/app_router.dart';
 
 void main() async {

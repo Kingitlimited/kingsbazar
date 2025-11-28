@@ -1,7 +1,3 @@
-/// lib/core/routes/app_router.dart
-/// GoRouter configuration with ShellRoute + perfect navigation
-
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kingsbazar/core/routes/app_routes.dart';
 import 'package:kingsbazar/core/widgets/main_scaffold.dart';
